@@ -23,7 +23,7 @@ class HomeLayout extends StatelessWidget {
                 ),
                 Positioned(
                   right: 2,
-                  left: 2,
+                  left: 4,
                   bottom: -60,
                   child: Row(
                     children: [
@@ -31,7 +31,10 @@ class HomeLayout extends StatelessWidget {
                       SizedBox(
                         width: 74.w,
                       ),
-                      const CardItem("assets/svg/Plane.svg", "طيران"),
+                       InkWell(
+                           onTap: () {
+                           },
+                           child: const CardItem("assets/svg/Plane.svg", "طيران")),
                     ],
                   ),
                 )

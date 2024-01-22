@@ -11,9 +11,9 @@ class ListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 3,
       shadowColor: Colors.grey,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
         Image.asset(
           "assets/images/listview.png",
         ),

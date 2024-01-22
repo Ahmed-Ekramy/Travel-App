@@ -13,7 +13,7 @@ class CardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 1,
       shadowColor: Colors.grey,
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -24,6 +24,7 @@ class CardItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(8)
         ),
         child: Column(
+
             children: [
               SvgPicture.asset(image),
               SizedBox(height: 11.h,),
