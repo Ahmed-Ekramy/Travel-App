@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theming/text_style.dart';
+import '../../../../core/theming/text_style.dart';
+
 
 class TripItems extends StatelessWidget {
   const TripItems({ required this.text,
