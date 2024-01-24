@@ -11,7 +11,7 @@ class NumberOfPassengers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, actions: [
+      appBar: AppBar( actions: [
         Padding(
           padding: EdgeInsets.only(right: 8.0.w),
           child: Text(
