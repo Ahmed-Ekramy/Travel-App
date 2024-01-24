@@ -4,6 +4,7 @@ import '../../features/flight/presentation/pages/flight_screen.dart';
 import '../../features/home/presentation/pages/home.dart';
 import '../../features/home/presentation/tabs/home_layout.dart';
 import '../../features/number_of_passengers/presentation/pages/number_of_passengers.dart';
+import '../../features/travel_class/presentation/pages/travel_class.dart';
 
 class AppRoute{
  static Route generateRoute(RouteSettings settings){
@@ -30,6 +31,12 @@ class AppRoute{
      return MaterialPageRoute(
       builder: (context) {
        return const NumberOfPassengers();
+      },
+     );
+ case (Routes.travelClass):
+     return MaterialPageRoute(
+      builder: (context) {
+       return const TravelClass();
       },
      );
 

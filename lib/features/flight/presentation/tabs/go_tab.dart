@@ -24,11 +24,14 @@ class GoTab extends StatelessWidget {
               "assets/svg/calendar-edit.svg", 'تاريخ المغادرة', 'اختر التاريخ'),
           InkWell(
               onTap: () {
-Navigator.pushNamed(context, Routes.passengers);
+                Navigator.pushNamed(context, Routes.passengers);
               },
               child: const GoItem(
                   "assets/svg/user-info.svg", 'عدد المساغرين', '1 بالغ')),
           InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, Routes.travelClass);
+            },
             child: const GoItem(
                 "assets/svg/Flight Seat.svg", 'درجه السفر', 'درجه اقتصلديه'),
           ),
