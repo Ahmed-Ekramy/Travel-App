@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:travel_app/core/routing/route.dart';
 import '../widgets/card_item.dart';
 import '../widgets/listview_builder.dart';
 import '../widgets/row_item.dart';
@@ -33,6 +34,7 @@ class HomeLayout extends StatelessWidget {
                       ),
                        InkWell(
                            onTap: () {
+                             Navigator.pushNamed(context, Routes.flightScreen);
                            },
                            child: const CardItem("assets/svg/Plane.svg", "طيران")),
                     ],
