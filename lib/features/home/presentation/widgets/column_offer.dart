@@ -22,10 +22,10 @@ class ColumnListView extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20.h),
-        ListViewOffer(),
+        const ListViewOffer(),
         SizedBox(height: 20.h),
       ],);
   }
 
-  ColumnListView(this.text, {super.key});
+  const ColumnListView(this.text, {super.key});
 }

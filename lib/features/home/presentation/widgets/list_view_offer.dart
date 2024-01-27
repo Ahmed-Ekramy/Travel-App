@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/core/routing/route.dart';
+
+import 'listview_item.dart';
 
 class ListViewOffer extends StatelessWidget {
   const ListViewOffer({
@@ -11,24 +14,30 @@ class ListViewOffer extends StatelessWidget {
       height: 167,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-
-        itemBuilder:(context, index) =>      Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Container(
-            width: 270,
-            clipBehavior: Clip.antiAlias,
-            decoration: ShapeDecoration(
-              image: const DecorationImage(
-                image:AssetImage("assets/images/Group sky.png"),
-                fit: BoxFit.fill,
-              ),
-              shape: RoundedRectangleBorder(
-                side: const BorderSide(width: 0.20, color: Color(0xFFACACAC)),
-                borderRadius: BorderRadius.circular(6),
-              ),
-            ),
-          ),
-        ),itemCount: 5, ),
+        itemBuilder: (context, index) =>  Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0.0),
+          child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.offerDetailScreen);
+              },
+              child: const ListViewItem()),
+          // child: Container(
+          //   width: 270,
+          //   clipBehavior: Clip.antiAlias,
+          //   decoration: ShapeDecoration(
+          //     image: const DecorationImage(
+          //       image:AssetImage("assets/images/Frame 143.png"),
+          //       fit: BoxFit.fill,
+          //     ),
+          //     shape: RoundedRectangleBorder(
+          //       side: const BorderSide(width: 0.20, color: Color(0xFFACACAC)),
+          //       borderRadius: BorderRadius.circular(6),
+          //     ),
+          //   ),
+          // ),
+        ),
+        itemCount: 5,
+      ),
     );
   }
 }

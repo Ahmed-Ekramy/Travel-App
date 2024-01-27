@@ -11,30 +11,30 @@ class SearchTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
-        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        slivers: [
-          SliverToBoxAdapter(
-            child: SizedBox(
-
-              child: Image.asset(
-                "assets/images/sky33.jpg",
-                width: double.infinity,
-              ),
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      slivers: [
+        SliverToBoxAdapter(
+          child: SizedBox(
+            child: Image.asset(
+              "assets/images/fly.jpg",
+              width: double.infinity,
             ),
           ),
-           SliverToBoxAdapter(child: SizedBox(height: 10.h)),
-           SliverToBoxAdapter(child:   Padding(
-            padding: EdgeInsets.symmetric(horizontal: 14.0.w),
-            child: const AppTextFormField(),
-          )),
-          SliverToBoxAdapter(child: SizedBox(height: 20.h)),
-          SliverToBoxAdapter(child: ColumnListView('استمتع بأفضل العروض')),
-           SliverToBoxAdapter(
-             child: ColumnListView(
-              'عروض علي الرحلات السياحيه',
-                       ),
-           ),
-        ],
+        ),
+        SliverToBoxAdapter(child: SizedBox(height: 10.h)),
+        SliverToBoxAdapter(
+            child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 14.0.w),
+          child: const AppTextFormField(),
+        )),
+        SliverToBoxAdapter(child: SizedBox(height: 20.h)),
+        const SliverToBoxAdapter(child: ColumnListView('استمتع بأفضل العروض')),
+        const SliverToBoxAdapter(
+          child: ColumnListView(
+            'عروض علي الرحلات السياحيه',
+          ),
+        ),
+      ],
     );
   }
 }
