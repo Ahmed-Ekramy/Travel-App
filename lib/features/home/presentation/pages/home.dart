@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/features/home/presentation/tabs/home_layout.dart';
 import 'package:travel_app/features/home/presentation/tabs/prof.dart';
 
-import '../tabs/search_tab.dart';
+import '../tabs/offer_tab.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         extendBody: true,
-      body: tabs[currentIndex],
+      body: SafeArea(child: tabs[currentIndex]),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Container(
@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
                   BottomNavigationBarItem(
                       backgroundColor: Colors.transparent,
                       icon: Icon(
-                        Icons.search_rounded,
+                        Icons.local_offer_outlined,
                         size: 30,
                       ),
                       label: "العروض"),
