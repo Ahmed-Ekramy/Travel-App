@@ -15,15 +15,14 @@ class RowItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'استعراض الكل',
-            textAlign: TextAlign.center,
-            style: readexPro12w400(),
-          ),
-          // SizedBox(width: 200.h,),
-          Text(
           text1,
             textAlign: TextAlign.center,
             style: readexPro16w700(),
+          ),
+          Text(
+            'Show all',
+            textAlign: TextAlign.center,
+            style: readexPro12w400(),
           ),
         ],
       ),

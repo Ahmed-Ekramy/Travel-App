@@ -28,7 +28,7 @@ class HomeLayout extends StatelessWidget {
                   bottom: -60,
                   child: Row(
                     children: [
-                      const CardItem("assets/svg/Offer.svg", "العروض"),
+                      const CardItem("assets/svg/hotel.svg", "Hotels"),
                       SizedBox(
                         width: 74.w,
                       ),
@@ -36,7 +36,7 @@ class HomeLayout extends StatelessWidget {
                            onTap: () {
                              Navigator.pushNamed(context, Routes.flightScreen);
                            },
-                           child: const CardItem("assets/svg/Plane.svg", "طيران")),
+                           child: const CardItem("assets/svg/Plane.svg", "Offers")),
                     ],
                   ),
                 )
@@ -46,7 +46,7 @@ class HomeLayout extends StatelessWidget {
               height: 150.h,
             ),
             const RowItem(
-              text1: 'افضل العروض',
+              text1: 'Best Offers',
             ),
             SizedBox(
               height: 16.h,
@@ -54,7 +54,7 @@ class HomeLayout extends StatelessWidget {
             const ListViewBuilder(),
             SizedBox(height: 35.h,),
             const RowItem(
-              text1: 'رحلات سياحية الي اوروبا',
+              text1: 'Tourist trips to Europe',
 
             ),
             SizedBox(
@@ -63,7 +63,7 @@ class HomeLayout extends StatelessWidget {
             const ListViewBuilder(),
              SizedBox(height: 35.h,),
             const RowItem(
-              text1: 'رحلات سياحية داخل مصر',
+              text1: 'Tourist trips inside Egypt',
 
 
             ),
@@ -71,7 +71,9 @@ class HomeLayout extends StatelessWidget {
               height: 16.h,
             ),
             const ListViewBuilder(),
-
+            SizedBox(
+              height: 150.h,
+            ),
           ],
         ),
       ),

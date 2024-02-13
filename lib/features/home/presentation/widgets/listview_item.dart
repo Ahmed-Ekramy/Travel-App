@@ -15,28 +15,27 @@ class ListViewItem extends StatelessWidget {
       shadowColor: Colors.white,
       child: Container(
         width: 220,
-        height: 147,
         decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Image.asset(
             "assets/images/listview.png",width: double.infinity,
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Text('رحلة الي الجيزه',
+            padding:  EdgeInsets.only(left: 8.0.w),
+            child: Text('A trip to Giza',
                 textAlign: TextAlign.center, style: readexPro16w700()),
           ),
           SizedBox(
-            height: 8.h,
+            height: 10.h,
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Text('بدأ من 15.000 جنيه',
+            padding:  EdgeInsets.only(left: 8.0.w),
+            child: Text('From 15.000 EGP',
                 textAlign: TextAlign.center, style: readexPro11w400()),
           ),
         ]),

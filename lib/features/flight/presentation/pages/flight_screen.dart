@@ -24,19 +24,16 @@ class FlightScreen extends StatelessWidget {
               tabs: const [
                 Tab(
                     child: Text(
-                  "رحلات متعدده ",
+                      "Going"
                 )),
-                Tab(child: Text("ذهاب و عوده")),
-                Tab(child: Text("ذهاب ")),
+                Tab(child: Text("Round trip")),
+                Tab(child: Text("Multiple trips ",)),
               ]),
         ),
-        body: const TabBarView(
-            children: [
-              MultipleTripTab(),
-              GoAndBackTabs(),
-              GoTab(),
-
-
+        body: const TabBarView(children: [
+          GoTab(),
+          GoAndBackTabs(),
+          MultipleTripTab(),
         ]),
       ),
     );
