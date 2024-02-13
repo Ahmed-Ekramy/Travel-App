@@ -15,10 +15,14 @@ class GoItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: 30.h),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          SvgPicture.asset(image),
+          SizedBox(
+            width: 18.w,
+          ),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(text1,
                   textAlign: TextAlign.center,
@@ -33,10 +37,8 @@ class GoItem extends StatelessWidget {
                       readexPro16w700().copyWith(fontWeight: FontWeight.w500))
             ],
           ),
-          SizedBox(
-            width: 18.w,
-          ),
-          SvgPicture.asset(image),
+
+
         ],
       ),
     );

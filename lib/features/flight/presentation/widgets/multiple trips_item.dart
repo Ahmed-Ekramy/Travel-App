@@ -9,9 +9,9 @@ class MultipleTripsItem extends StatelessWidget {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TripItems(text: 'التاريخ'),
-        TripItems(text: "الى"),
-        TripItems(text: "من"),
+        TripItems(text: 'Date'),
+        TripItems(text: "to"),
+        TripItems(text: "from"),
 
       ],
     );

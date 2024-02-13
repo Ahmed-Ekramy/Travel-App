@@ -11,14 +11,13 @@ class ListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250.h,
+      height: 270.h,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const Padding(
-
-          padding:  EdgeInsets.symmetric(horizontal: 10.0),
-          child: ListViewItem(),
+        itemBuilder: (context, index) =>  Padding(
+          padding:  EdgeInsets.symmetric(horizontal: 10.0.w),
+          child: const ListViewItem(),
         ),
         itemCount: 10,
       ),

@@ -14,23 +14,23 @@ class GoAndBackTabs extends StatelessWidget {
         children: [
           const GoItem(
             "assets/svg/Air Shipping.svg",
-            'المغادرة',
-            'اختار بلد المغادرة',
+            'Departure',
+            'Select country of departure',
           ),
           const GoItem(
-              "assets/svg/Airplane.svg", 'الوصول', 'اختيار بلد الوصول'),
+              "assets/svg/Airplane.svg", 'arrival', 'Choose a country of arrival'),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GoItem("assets/svg/calendar-edit.svg", 'تاريخ المغادرة',
-                  'اختر التاريخ'),
-              GoItem("assets/svg/calendar-edit.svg", 'تاريخ العودة',
-                  'اختر التاريخ'),
+              GoItem("assets/svg/calendar-edit.svg", 'Departure Date',
+                  'Select Date'),
+              GoItem("assets/svg/calendar-edit.svg", 'Return Date',
+                  'Select Date'),
             ],
           ),
-          const GoItem("assets/svg/user-info.svg", 'عدد المساغرين', '1 بالغ'),
+          const GoItem("assets/svg/user-info.svg", 'Number of passengers', '1 Adult'),
           const GoItem(
-              "assets/svg/Flight Seat.svg", 'درجه السفر', 'درجه اقتصلديه'),
+              "assets/svg/Flight Seat.svg", 'Travel class', 'Economic degree'),
           const Expanded(child: SizedBox()),
           elevatedButton(),
         ],
