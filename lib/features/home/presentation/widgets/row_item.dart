@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theming/text_style.dart';
 
@@ -10,7 +12,7 @@ class RowItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding:  EdgeInsets.symmetric(horizontal: 15.0.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -20,7 +22,7 @@ class RowItem extends StatelessWidget {
             style: readexPro16w700(),
           ),
           Text(
-            'Show all',
+            'Show all'.tr(),
             textAlign: TextAlign.center,
             style: readexPro12w400(),
           ),

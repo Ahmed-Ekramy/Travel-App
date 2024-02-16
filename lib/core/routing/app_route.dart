@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/core/routing/route.dart';
 import 'package:travel_app/features/login/presentation/pages/login_screen.dart';
+import 'package:travel_app/features/search_result/presentation/pages/search_result_screen.dart';
 import '../../features/flight/presentation/pages/flight_screen.dart';
 import '../../features/forgot_password/presentation/pages/forgot_password_screen.dart';
 import '../../features/home/presentation/pages/home.dart';
@@ -76,6 +77,14 @@ class AppRoute {
             return const NewPassword();
           },
         );
+// case (Routes.searchResultScreen):
+//         return MaterialPageRoute(
+//           builder: (context) {
+//             return const SearchResultScreen(
+//
+//             );
+//           },
+//         );
 
       default:
         return MaterialPageRoute(

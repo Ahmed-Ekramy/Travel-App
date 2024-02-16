@@ -14,7 +14,7 @@ class ColumnListView extends StatelessWidget {
 
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding:  EdgeInsets.only(left: 8.0.w),
           child: Text(
               text,
               textAlign: TextAlign.center,

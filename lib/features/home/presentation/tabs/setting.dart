@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/core/routing/route.dart';
-import 'package:travel_app/core/theming/text_style.dart';
 import '../widgets/item_listView_setting.dart';
 
 class Setting extends StatelessWidget {
@@ -27,46 +27,41 @@ class Setting extends StatelessWidget {
                   textItem: "Profile",
                 ),
               ),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/money.svg",
                 text: "\$ dollar",
-                textItem: "Currency",
+                textItem: "Currency".tr(),
               ),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/Language.svg",
                 text: "Egypt",
-                textItem: "Country",
+                textItem: "Country".tr(),
               ),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/trans.svg",
                 text: "English",
-                textItem: "Language ",
+                textItem: "Language ".tr(),
               ),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/Information.svg",
-                textItem: "Who are we",
+                textItem: "Who are we".tr(),
               ),
-              // SizedBox(height: 20.h,),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              //   child: Text("Join our community to travel \nand follow the latest trips",style: readexPro14w400()),
-              // ),
               SizedBox(height: 20.h,),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/Facebook2.svg",
-                textItem: "Subscribe to our Facebook ",
+                textItem: "Subscribe to our Facebook ".tr(),
               ),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/Instagram.svg",
-                textItem: "Follow us on Instagram",
+                textItem: "Follow us on Instagram".tr(),
               ),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/X Logo.svg",
-                textItem: "Follow us on X",
+                textItem: "Follow us on X".tr(),
               ),
-              const CustomItemListViewSetting(
+               CustomItemListViewSetting(
                 image: "assets/svg/Youtube.svg",
-                textItem: "Subscribe to our YouTube",
+                textItem: "Subscribe to our YouTube".tr(),
               ),
             ],
           ),

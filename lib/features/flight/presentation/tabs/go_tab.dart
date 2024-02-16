@@ -18,22 +18,22 @@ class GoTab extends StatelessWidget {
             'Departure',
             'Select country of departure',
           ),
+          const GoItem("assets/svg/Airplane.svg", 'arrival',
+              'Choose a country of arrival'),
           const GoItem(
-              "assets/svg/Airplane.svg", 'arrival', 'Choose a country of arrival'),
-          const GoItem(
-              "assets/svg/calendar-edit.svg", 'Departure Date',  'Select Date'),
+              "assets/svg/calendar-edit.svg", 'Departure Date', 'Select Date'),
           InkWell(
               onTap: () {
                 Navigator.pushNamed(context, Routes.passengers);
               },
-              child: const GoItem(
-                  "assets/svg/user-info.svg","Number of passengers", "1 Adult")),
+              child: const GoItem("assets/svg/user-info.svg",
+                  "Number of passengers", "1 Adult")),
           InkWell(
             onTap: () {
               Navigator.pushNamed(context, Routes.travelClass);
             },
-            child: const GoItem(
-                "assets/svg/Flight Seat.svg"," Travel class", "Economic degree"),
+            child: const GoItem("assets/svg/Flight Seat.svg", " Travel class",
+                "Economic degree"),
           ),
           const Expanded(child: SizedBox()),
           elevatedButton(),

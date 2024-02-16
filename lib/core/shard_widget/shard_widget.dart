@@ -10,7 +10,7 @@ Container elevatedButton() {
             backgroundColor: MaterialStatePropertyAll(Colors.blue)),
         onPressed: () {},
         child: const Text(
-          'ابحث ',
+          'Search ',
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.white,

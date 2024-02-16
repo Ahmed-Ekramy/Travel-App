@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +34,7 @@ class CustomOfferTab extends StatelessWidget {
                   child: AppTextFormField(
                     preIcon: const Icon(Icons.search_rounded,
                         size: 30, color: Colors.grey),
-                    hintText: "Search..",
+                    hintText: "${"Search".tr()}..",
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40.r),
                         borderSide: const BorderSide(color: Colors.grey)),
@@ -45,11 +46,11 @@ class CustomOfferTab extends StatelessWidget {
                 ),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 20.h)),
-              const SliverToBoxAdapter(
-                  child: ColumnListView('Enjoy the best deals')),
-              const SliverToBoxAdapter(
+               SliverToBoxAdapter(
+                  child: ColumnListView('Enjoy the best deals'.tr())),
+               SliverToBoxAdapter(
                 child: ColumnListView(
-                  'Offers on tourist trips',
+                  'Offers on tourist trips'.tr(),
                 ),
               ),
             ],

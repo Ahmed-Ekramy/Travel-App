@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/core/routing/route.dart';
 
 import 'listview_item.dart';
@@ -11,31 +12,14 @@ class ListViewOffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 167,
+      height: 167.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) =>  Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0.0),
-          child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, Routes.offerDetailScreen);
-              },
-              child: const ListViewItem()),
-          // child: Container(
-          //   width: 270,
-          //   clipBehavior: Clip.antiAlias,
-          //   decoration: ShapeDecoration(
-          //     image: const DecorationImage(
-          //       image:AssetImage("assets/images/Frame 143.png"),
-          //       fit: BoxFit.fill,
-          //     ),
-          //     shape: RoundedRectangleBorder(
-          //       side: const BorderSide(width: 0.20, color: Color(0xFFACACAC)),
-          //       borderRadius: BorderRadius.circular(6),
-          //     ),
-          //   ),
-          // ),
-        ),
+        itemBuilder: (context, index) =>  InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, Routes.offerDetailScreen);
+            },
+            child: const ListViewItem()),
         itemCount: 5,
       ),
     );

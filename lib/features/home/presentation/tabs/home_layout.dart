@@ -1,9 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:travel_app/core/routing/route.dart';
-import '../widgets/card_item.dart';
 import '../widgets/listview_builder.dart';
 import '../widgets/row_item.dart';
+import '../widgets/stack_hotels_or_flight_and_image.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);
@@ -15,46 +15,20 @@ class HomeLayout extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Image.asset(
-                  "assets/images/sky33.jpg",
-                  width: double.infinity,
-                ),
-                Positioned(
-                  right: 2,
-                  left: 4,
-                  bottom: -60,
-                  child: Row(
-                    children: [
-                      const CardItem("assets/svg/hotel.svg", "Hotels"),
-                      SizedBox(
-                        width: 74.w,
-                      ),
-                       InkWell(
-                           onTap: () {
-                             Navigator.pushNamed(context, Routes.flightScreen);
-                           },
-                           child: const CardItem("assets/svg/Plane.svg", "Offers")),
-                    ],
-                  ),
-                )
-              ],
-            ),
+            const StackHotelsOrFlightAndImage(),
             SizedBox(
               height: 150.h,
             ),
-            const RowItem(
-              text1: 'Best Offers',
+             RowItem(
+              text1: 'Best Offers'.tr(),
             ),
             SizedBox(
               height: 16.h,
             ),
             const ListViewBuilder(),
             SizedBox(height: 35.h,),
-            const RowItem(
-              text1: 'Tourist trips to Europe',
+             RowItem(
+              text1: 'Tourist trips to Europe'.tr(),
 
             ),
             SizedBox(
@@ -62,10 +36,8 @@ class HomeLayout extends StatelessWidget {
             ),
             const ListViewBuilder(),
              SizedBox(height: 35.h,),
-            const RowItem(
-              text1: 'Tourist trips inside Egypt',
-
-
+             RowItem(
+              text1: 'Tourist trips inside Egypt'.tr(),
             ),
             SizedBox(
               height: 16.h,
@@ -80,3 +52,4 @@ class HomeLayout extends StatelessWidget {
     );
   }
 }
+

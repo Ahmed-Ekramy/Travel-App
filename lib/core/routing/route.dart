@@ -10,4 +10,5 @@ class Routes{
   static const String  offerDetailScreen="offerDetailScreen";
   static const String  prof="prof";
   static const String  profEditScreen="profEditScreen";
+  static const String  searchResultScreen="searchResultScreen";
 }

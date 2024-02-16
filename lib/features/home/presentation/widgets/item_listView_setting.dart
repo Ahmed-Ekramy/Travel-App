@@ -18,7 +18,7 @@ final String image;
       width: double.infinity,
       height: 70,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(30.r),
           border:Border.all(color: Colors.indigoAccent)
       ),
       child: Row(
