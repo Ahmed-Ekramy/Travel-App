@@ -14,12 +14,12 @@ class Profile extends StatelessWidget {
         children: [
           const CustomProfile(),
           Positioned(
-              top: 110,
-              left: 120,
+              top: 190.h,
+              left: 120.w,
               child: Column(
                 children: [
-                  const CircleAvatar(
-                    radius: 60,
+                   CircleAvatar(
+                    radius: 60.r,
                   ),
                   SizedBox(height: 10.h,),
                   Text("Ahmed Ekramy",style: readexPro16w700()),

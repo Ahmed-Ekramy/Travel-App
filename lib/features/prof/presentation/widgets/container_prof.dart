@@ -17,9 +17,9 @@ class ContainerProf extends StatelessWidget {
         horizontal: 8.w,
       ),
       width: double.infinity,
-      height: 70,
+      height: 120.h,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           border: Border.all(color: Colors.grey)),
       child: Row(
         children: [
