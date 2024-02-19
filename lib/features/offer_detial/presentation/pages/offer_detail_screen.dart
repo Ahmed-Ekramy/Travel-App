@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/core/shard_widget/button.dart';
@@ -20,7 +21,7 @@ class OfferDetailScreen extends StatelessWidget {
                 child: Image.asset("assets/images/Frame 143.png")),
                 SizedBox(height: 37.h,),
                 Text(
-                  'استمتع بعرض 25% علي اول رحلاتك الاوروبيه',
+                  "Enjoy a 25% offer on your first European flights",
                   textAlign: TextAlign.center,
                   style: readexPro16w700()
                 ),
@@ -34,10 +35,10 @@ class OfferDetailScreen extends StatelessWidget {
                 SizedBox(height: 37.h,),
                 Row(
                   children: [
-                    const CustomButton(widthButton: 154,heightButton: 53,nameButton: 'السعر \n10.0000',colorButton: Colors.white,colorText: Color(0xFF1C98DE),),
+                     CustomButton(widthButton: 154.w,heightButton: 100.h,nameButton: '${"Price".tr()} \n10.0000',colorButton: Colors.white,colorText: const Color(0xFF1C98DE),),
                     SizedBox(width: 10.h,),
 
-                    const CustomButton(widthButton: 193,heightButton: 53,nameButton: 'بادر بالحجز الان'),
+                     CustomButton(widthButton: 193.w,heightButton: 100.h,nameButton: 'Book now'.tr()),
                   ],
                 ),
 

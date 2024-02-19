@@ -12,7 +12,7 @@ TextStyle readexPro16w700() => GoogleFonts.inter(
       fontWeight: FontWeight.w700,
       color: Colors.black,
     );
-TextStyle readexPro12w400() => GoogleFonts.readexPro(
+TextStyle readexPro12w400() => GoogleFonts.inter(
       fontSize: 16.sp,
       fontWeight: FontWeight.w400,
       color: const Color(0xFF1C98DE)

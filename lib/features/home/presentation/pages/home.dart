@@ -1,6 +1,5 @@
-import 'dart:developer';
 
-import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/features/home/presentation/tabs/home_layout.dart';
 import 'package:travel_app/features/home/presentation/tabs/setting.dart';
@@ -30,69 +29,48 @@ class _HomeState extends State<Home> {
     return Scaffold(
         extendBody: true,
         body: tabs[currentIndex],
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-          child: Container(
-            height: 65,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: const BorderRadius.all(Radius.circular(0)
-              ),
-// تدوير الزوايا
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white.withOpacity(0.1),
-                  spreadRadius: 2,
-                  blurRadius: 8,
-                  offset: const Offset(0, 3), // تحديد الظل
-                ),
-              ],
-            ),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Theme(
-                data: Theme.of(context)
-                    .copyWith(canvasColor: Colors.transparent),
-                child: BottomNavigationBar(
-
-                    elevation: 0,
-                    selectedIconTheme:
-                    const IconThemeData(color: Colors.blue, size: 30),
-                    unselectedIconTheme:
-                    const IconThemeData(color: Colors.grey, size: 30),
-                    onTap: (value) {
-                      currentIndex = value;
-                      setState(() {});
-                    },
-                    currentIndex: currentIndex,
-                    items: const [
-                      BottomNavigationBarItem(
+        bottomNavigationBar: Container(
+          height: 65,
+            color: Colors.white,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Theme(
+              data: Theme.of(context)
+                  .copyWith(canvasColor: Colors.transparent),
+              child: BottomNavigationBar(
+                  selectedIconTheme:
+                  const IconThemeData(color: Colors.blue, size: 30),
+                  unselectedIconTheme:
+                  const IconThemeData(color: Colors.grey, size: 30),
+                  onTap: (value) {
+                    currentIndex = value;
+                    setState(() {});
+                  },
+                  currentIndex: currentIndex,
+                  items:  [
+                    BottomNavigationBarItem(
+                      backgroundColor: Colors.transparent,
+                      icon: const Icon(Icons.settings, size: 30),
+                      label: "Settings".tr(),
+                    ),
+                    BottomNavigationBarItem(
                         backgroundColor: Colors.transparent,
-                        icon: Icon(Icons.settings, size: 30),
-                        label: "Settings",
-                      ),
-                      BottomNavigationBarItem(
-                          backgroundColor: Colors.transparent,
-                          icon: Icon(
-                            Icons.local_offer_outlined,
-                            size: 30,
-                          ),
-                          label: "Offers"),
-                      BottomNavigationBarItem(
-                          backgroundColor: Colors.transparent,
-                          icon: Icon(
-                            Icons.home,
-                            size: 30,
-                          ),
-                          label: "Home"),
-                    ]),
-              ),
+                        icon: const Icon(
+                          Icons.local_offer_outlined,
+                          size: 30,
+                        ),
+                        label: "Offers".tr()),
+                    BottomNavigationBarItem(
+                        backgroundColor: Colors.transparent,
+                        icon: const Icon(
+                          Icons.home,
+                          size: 30,
+                        ),
+                        label: "Home".tr()),
+                  ]),
             ),
           ),
         ));
   }
 }
-// onTap: (value) {
-// currentIndex = value;
-// setState(() {});
-// },
+

@@ -14,18 +14,16 @@ class CardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
         width: 146.w,
         height: 200.h,
         decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: const [
+            borderRadius: BorderRadius.circular(8.r),
+            boxShadow:  [
             BoxShadow(
-            color: Color(0x0F000000),
-        blurRadius: 50,
-        offset: Offset(0, 1),
-        spreadRadius: 0,
+            color: const Color(0x0F000000),
+        blurRadius: 50.r,
       )],
         ),
         child: Column(
