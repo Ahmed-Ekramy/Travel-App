@@ -7,7 +7,7 @@ class AppTextFormField extends StatelessWidget {
       this.contentPadding,
       this.hintText,
       this.focusedBorder,
-      this.enabledBorder, this.isObscureText, this.suffixIcon});
+      this.enabledBorder, this.isObscureText, this.suffixIcon,this.onChanged});
   final bool? isObscureText;
   final Widget? preIcon;
   final Widget? suffixIcon;
@@ -15,10 +15,12 @@ class AppTextFormField extends StatelessWidget {
   final String? hintText;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
+ final Function(String?)?onChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextFormField(
+        onChanged:onChanged,
         obscureText: isObscureText ?? false,
         textAlign: TextAlign.start,
         decoration: InputDecoration(

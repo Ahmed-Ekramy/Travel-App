@@ -1,6 +1,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/features/home/presentation/tabs/home_layout.dart';
 import 'package:travel_app/features/home/presentation/tabs/setting.dart';
 
@@ -30,7 +31,7 @@ class _HomeState extends State<Home> {
         extendBody: true,
         body: tabs[currentIndex],
         bottomNavigationBar: Container(
-          height: 65,
+          height: 120.h,
             color: Colors.white,
           child: Align(
             alignment: Alignment.bottomCenter,
@@ -38,6 +39,7 @@ class _HomeState extends State<Home> {
               data: Theme.of(context)
                   .copyWith(canvasColor: Colors.transparent),
               child: BottomNavigationBar(
+                elevation: 0,
                   selectedIconTheme:
                   const IconThemeData(color: Colors.blue, size: 30),
                   unselectedIconTheme:

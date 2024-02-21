@@ -13,13 +13,30 @@ class GoTab extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 30.h),
       child: Column(
         children: [
-          const GoItem(
-            "assets/svg/Air Shipping.svg",
-            'Departure',
-            'Select country of departure',
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, Routes.search,
+                   arguments: {
+                "name": 'Select country of departure',
+                   }
+              );
+            },
+            child: const GoItem(
+               "assets/svg/Air Shipping.svg",
+               'Departure',
+              'Select country of departure',
+            ),
           ),
-          const GoItem("assets/svg/Airplane.svg", 'arrival',
-              'Choose a country of arrival'),
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, Routes.search,
+                  arguments: {
+                  "name": 'Choose a country of arrival'
+                  });
+            },
+            child: const GoItem("assets/svg/Airplane.svg", 'arrival',
+                'Choose a country of arrival'),
+          ),
           const GoItem(
               "assets/svg/calendar-edit.svg", 'Departure Date', 'Select Date'),
           InkWell(

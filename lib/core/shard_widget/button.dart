@@ -44,7 +44,7 @@ class CustomButton extends StatelessWidget {
 
       Text(nameButton ?? 'Login',
           textAlign: TextAlign.center,
-          style: readexPro16w700().copyWith(color:colorText?? Colors.white,fontSize: 14.sp)),
+          style: readexPro16w700().copyWith(color:colorText?? Colors.white,fontSize: 18.sp)),
     );
   }
 }

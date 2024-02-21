@@ -12,7 +12,7 @@ class ListViewOffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 167.h,
+      height: 280.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) =>  InkWell(
