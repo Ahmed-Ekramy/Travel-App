@@ -139,10 +139,9 @@ class City {
   String? slug;
   Region? region;
   Country? country;
-  Null? nearbyCountry;
   Country? subdivision;
   Country? continent;
-  Null? autonomousTerritory;
+
 
   City(
       {this.id,
@@ -151,10 +150,9 @@ class City {
         this.slug,
         this.region,
         this.country,
-        this.nearbyCountry,
         this.subdivision,
         this.continent,
-        this.autonomousTerritory});
+      });
 
   City.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -165,14 +163,12 @@ class City {
     json['region'] != null ? Region.fromJson(json['region']) : null;
     country =
     json['country'] != null ? Country.fromJson(json['country']) : null;
-    nearbyCountry = json['nearby_country'];
     subdivision = json['subdivision'] != null
         ? Country.fromJson(json['subdivision'])
         : null;
     continent = json['continent'] != null
         ? Country.fromJson(json['continent'])
         : null;
-    autonomousTerritory = json['autonomous_territory'];
   }
 }
 
