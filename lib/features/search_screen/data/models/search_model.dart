@@ -1,19 +1,15 @@
-class SearchModel {
-  List<Locations>? locations;
+import '../../domain/entities/search_entity.dart';
+
+class SearchModel extends SearchEntity{
   Meta? meta;
   int? lastRefresh;
   int? resultsRetrieved;
 
   SearchModel(
-      {this.locations, this.meta, this.lastRefresh, this.resultsRetrieved});
+      {super.locations, this.meta, this.lastRefresh, this.resultsRetrieved});
 
   SearchModel.fromJson(Map<String, dynamic> json) {
-    if (json['locations'] != null) {
-      locations = <Locations>[];
-      json['locations'].forEach((v) {
-        locations!.add(Locations.fromJson(v));
-      });
-    }
+    locations =  json['locations'];
     meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
     lastRefresh = json['last_refresh'];
     resultsRetrieved = json['results_retrieved'];
@@ -21,12 +17,11 @@ class SearchModel {
 
 }
 
-class Locations {
+class Locations extends LocationsEntity {
   String? id;
   int? intId;
   int? airportIntId;
   bool? active;
-  String? code;
   String? icao;
   String? name;
   String? slug;
@@ -53,7 +48,7 @@ class Locations {
         this.intId,
         this.airportIntId,
         this.active,
-        this.code,
+        super.code,
         this.icao,
         this.name,
         this.slug,
@@ -132,10 +127,9 @@ class Locations {
   }
 }
 
-class City {
+class City extends CityEntity {
   String? id;
   String? name;
-  String? code;
   String? slug;
   Region? region;
   Country? country;
@@ -146,7 +140,7 @@ class City {
   City(
       {this.id,
         this.name,
-        this.code,
+        super.code,
         this.slug,
         this.region,
         this.country,
@@ -187,13 +181,13 @@ class Region {
 
 }
 
-class Country {
+class Country extends CountryEntity{
   String? id;
   String? name;
   String? slug;
   String? code;
 
-  Country({this.id, this.name, this.slug, this.code});
+  Country({this.id, this.name, this.slug, super.code});
 
   Country.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -266,11 +260,11 @@ class Meta {
   }
 }
 
-class Locale {
+class Locale extends LocaleEntity{
   String? code;
   String? status;
 
-  Locale({this.code, this.status});
+  Locale({super.code, super.status});
 
   Locale.fromJson(Map<String, dynamic> json) {
     code = json['code'];
