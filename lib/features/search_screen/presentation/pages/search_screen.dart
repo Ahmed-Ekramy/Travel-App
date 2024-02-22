@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/core/shard_widget/button.dart';
 import 'package:travel_app/core/shard_widget/text_form_field.dart';
 import 'package:travel_app/core/theming/text_style.dart';
-// import 'package:travel_app/features/flight/presentation/widgets/go_item.dart';
 import '../widgets/item_list_last_search.dart';
 
 class SearchScreen extends StatelessWidget {

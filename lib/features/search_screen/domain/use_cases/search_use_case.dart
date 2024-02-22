@@ -4,8 +4,8 @@ import 'package:travel_app/features/search_screen/domain/repositories/search_dom
 import '../../../../core/failure/failure.dart';
 import '../entities/search_entity.dart';
 
-class UseCase{
+class SearchUseCase{
   SearchDomainRepo searchDomainRepo;
-  UseCase(this.searchDomainRepo);
+  SearchUseCase(this.searchDomainRepo);
   Future<Either<Failures,SearchEntity>> call()=>searchDomainRepo.location();
 }

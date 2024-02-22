@@ -12,7 +12,8 @@ class SearchRemoteDto extends SearchDto {
     try {
       var response =await dio.get(
           "${Constant.baseUrl}/query?term=PRG&locale=en-US&location_types=airport&limit=10&active_only=true",
-          options: Options(headers: {
+          options: Options(
+              headers: {
             "apikey": "NOPm5iUmQhKID8BOvvPtEO7qP0xlgqSX",
             "Accept": "application/json",
           }),
