@@ -3,7 +3,6 @@ import 'package:either_dart/either.dart';
 import 'package:travel_app/core/constant/constant.dart';
 import 'package:travel_app/core/failure/failure.dart';
 import 'package:travel_app/features/search_screen/data/data_sources/search_dto.dart';
-
 import '../models/search_model.dart';
 
 class SearchRemoteDto extends SearchDto {
