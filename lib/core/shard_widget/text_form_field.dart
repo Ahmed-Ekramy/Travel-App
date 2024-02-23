@@ -15,7 +15,7 @@ class AppTextFormField extends StatelessWidget {
   final String? hintText;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
- final Function(String?)?onChanged;
+ final Function(String)?onChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

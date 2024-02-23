@@ -7,5 +7,5 @@ import '../entities/search_entity.dart';
 class SearchUseCase{
   SearchDomainRepo searchDomainRepo;
   SearchUseCase(this.searchDomainRepo);
-  Future<Either<Failures,SearchEntity>> call()=>searchDomainRepo.location();
+  Future<Either<Failures,SearchEntity>> call({required String name})=>searchDomainRepo.location(name: name);
 }

@@ -1,76 +1,76 @@
-import '../../domain/entities/search_entity.dart';
+import 'package:travel_app/features/search_screen/domain/entities/search_entity.dart';
 
-class SearchModel extends SearchEntity{
-  Meta? meta;
-  int? lastRefresh;
-  int? resultsRetrieved;
+class SearchModel extends SearchEntity {
+  SearchModel({
+    required super.locations,
+    required this.meta,
+    required this.lastRefresh,
+    required this.resultsRetrieved,
+  });
+  late final Meta meta;
+  late final int lastRefresh;
+  late final int resultsRetrieved;
 
-  SearchModel(
-      {super.locations, this.meta, this.lastRefresh, this.resultsRetrieved});
-
-  SearchModel.fromJson(Map<String, dynamic> json) {
-    locations =  json['locations'];
-    meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
+  SearchModel.fromJson(Map<String, dynamic> json){
+    meta = Meta.fromJson(json['meta']);
     lastRefresh = json['last_refresh'];
     resultsRetrieved = json['results_retrieved'];
   }
-
 }
 
 class Locations extends LocationsEntity {
-  String? id;
-  int? intId;
-  int? airportIntId;
-  bool? active;
-  String? icao;
-  String? name;
-  String? slug;
-  String? slugEn;
-  List<String>? alternativeNames;
-  int? rank;
-  int? globalRankDst;
-  int? dstPopularityScore;
-  String? timezone;
-  City? city;
-  Location? location;
-  List<AlternativeDeparturePoints>? alternativeDeparturePoints;
-  List<Tags>? tags;
-  List<int>? providers;
-  // List<Special>? special;
-  // List<TouristRegion>? touristRegion;
-  List<CarRentals>? carRentals;
-  bool? newGround;
-  int? routingPriority;
-  String? type;
+  Locations({
+    required this.id,
+    required this.intId,
+    required this.airportIntId,
+    required this.active,
+    required super.code,
+    required this.icao,
+    required super.name,
+    required this.slug,
+    required this.slugEn,
+    required this.alternativeNames,
+    required this.rank,
+    required this.globalRankDst,
+    required this.dstPopularityScore,
+    required this.timezone,
+    required this.city,
+    required this.location,
+    required this.alternativeDeparturePoints,
+    required this.tags,
+    required this.providers,
+    required this.special,
+    required this.touristRegion,
+    required this.carRentals,
+    required this.newGround,
+    required this.routingPriority,
+    required this.type,
+  });
+  late final String id;
+  late final int intId;
+  late final int airportIntId;
+  late final bool active;
+  late final String icao;
+  late final String slug;
+  late final String slugEn;
+  late final List<String> alternativeNames;
+  late final int rank;
+  late final int globalRankDst;
+  late final int dstPopularityScore;
+  late final String timezone;
+  late final City city;
+  late final Location location;
+  late final List<AlternativeDeparturePoints> alternativeDeparturePoints;
+  late final List<Tags> tags;
+  late final List<int> providers;
+  late final List<Special> special;
+  late final List<TouristRegion> touristRegion;
+  late final List<CarRentals> carRentals;
+  late final bool newGround;
+  late final int routingPriority;
+  late final String type;
 
-  Locations(
-      {this.id,
-        this.intId,
-        this.airportIntId,
-        this.active,
-        super.code,
-        this.icao,
-        this.name,
-        this.slug,
-        this.slugEn,
-        this.alternativeNames,
-        this.rank,
-        this.globalRankDst,
-        this.dstPopularityScore,
-        this.timezone,
-        this.city,
-        this.location,
-        this.alternativeDeparturePoints,
-        this.tags,
-        this.providers,
-        // this.special,
-        // this.touristRegion,
-        this.carRentals,
-        this.newGround,
-        this.routingPriority,
-        this.type});
-
-  Locations.fromJson(Map<String, dynamic> json) {
+  Locations.fromJson(Map<String, dynamic> json){
     id = json['id'];
     intId = json['int_id'];
     airportIntId = json['airport_int_id'];
@@ -80,116 +80,113 @@ class Locations extends LocationsEntity {
     name = json['name'];
     slug = json['slug'];
     slugEn = json['slug_en'];
-    alternativeNames = json['alternative_names'].cast<String>();
+    alternativeNames = List.castFrom<dynamic, String>(json['alternative_names']);
     rank = json['rank'];
     globalRankDst = json['global_rank_dst'];
     dstPopularityScore = json['dst_popularity_score'];
     timezone = json['timezone'];
-    city = json['city'] != null ? City.fromJson(json['city']) : null;
-    location = json['location'] != null
-        ? Location.fromJson(json['location'])
-        : null;
-    if (json['alternative_departure_points'] != null) {
-      alternativeDeparturePoints = <AlternativeDeparturePoints>[];
-      json['alternative_departure_points'].forEach((v) {
-        alternativeDeparturePoints!
-            .add(AlternativeDeparturePoints.fromJson(v));
-      });
-    }
-    if (json['tags'] != null) {
-      tags = <Tags>[];
-      json['tags'].forEach((v) {
-        tags!.add(Tags.fromJson(v));
-      });
-    }
-    providers = json['providers'].cast<int>();
-    // if (json['special'] != null) {
-    //   special = <Special>[];
-    //   json['special'].forEach((v) {
-    //     special!.add(Special.fromJson(v));
-    //   });
-    // }
-    // if (json['tourist_region'] != null) {
-    //   touristRegion = <TouristRegion>[];
-    //   json['tourist_region'].forEach((v) {
-    //     touristRegion!.add(TouristRegion.fromJson(v));
-    //   });
-    // }
-    if (json['car_rentals'] != null) {
-      carRentals = <CarRentals>[];
-      json['car_rentals'].forEach((v) {
-        carRentals!.add(CarRentals.fromJson(v));
-      });
-    }
+    city = City.fromJson(json['city']);
+    location = Location.fromJson(json['location']);
+    alternativeDeparturePoints = List.from(json['alternative_departure_points']).map((e)=>AlternativeDeparturePoints.fromJson(e)).toList();
+    tags = List.from(json['tags']).map((e)=>Tags.fromJson(e)).toList();
+    providers = List.castFrom<dynamic, int>(json['providers']);
+    special = List.from(json['special']).map((e)=>Special.fromJson(e)).toList();
+    touristRegion = List.from(json['tourist_region']).map((e)=>TouristRegion.fromJson(e)).toList();
+    carRentals = List.from(json['car_rentals']).map((e)=>CarRentals.fromJson(e)).toList();
     newGround = json['new_ground'];
     routingPriority = json['routing_priority'];
     type = json['type'];
   }
 }
 
-class City extends CityEntity {
-  String? id;
-  String? name;
-  String? slug;
-  Region? region;
-  Country? country;
-  Country? subdivision;
-  Country? continent;
+class City extends CityEntity{
+  City({
+    required this.id,
+    required this.name,
+    required super.code,
+    required this.slug,
+    required this.region,
+    required this.country,
+    this.nearbyCountry,
+    this.subdivision,
+    required this.continent,
+    this.autonomousTerritory,
+  });
+  late final String id;
+  late final String name;
+  late final String slug;
+  late final Region region;
+  late final Country country;
+  late final Null nearbyCountry;
+  late final Subdivision? subdivision;
+  late final Continent continent;
+  late final Null autonomousTerritory;
 
-
-  City(
-      {this.id,
-        this.name,
-        super.code,
-        this.slug,
-        this.region,
-        this.country,
-        this.subdivision,
-        this.continent,
-      });
-
-  City.fromJson(Map<String, dynamic> json) {
+  City.fromJson(Map<String, dynamic> json){
     id = json['id'];
     name = json['name'];
     code = json['code'];
     slug = json['slug'];
-    region =
-    json['region'] != null ? Region.fromJson(json['region']) : null;
-    country =
-    json['country'] != null ? Country.fromJson(json['country']) : null;
-    subdivision = json['subdivision'] != null
-        ? Country.fromJson(json['subdivision'])
-        : null;
-    continent = json['continent'] != null
-        ? Country.fromJson(json['continent'])
-        : null;
+    region = Region.fromJson(json['region']);
+    country = Country.fromJson(json['country']);
+    nearbyCountry = null;
+    subdivision = null;
+    continent = Continent.fromJson(json['continent']);
+    autonomousTerritory = null;
   }
+
 }
 
 class Region {
-  String? id;
-  String? name;
-  String? slug;
+  Region({
+    required this.id,
+    required this.name,
+    required this.slug,
+  });
+  late final String id;
+  late final String name;
+  late final String slug;
 
-  Region({this.id, this.name, this.slug});
-
-  Region.fromJson(Map<String, dynamic> json) {
+  Region.fromJson(Map<String, dynamic> json){
     id = json['id'];
     name = json['name'];
     slug = json['slug'];
   }
+}
+
+class Country extends CountryEntity {
+  Country({
+    required this.id,
+    required this.name,
+    required this.slug,
+    required super.code,
+  });
+  late final String id;
+  late final String name;
+  late final String slug;
+
+  Country.fromJson(Map<String, dynamic> json){
+    id = json['id'];
+    name = json['name'];
+    slug = json['slug'];
+    code = json['code'];
+  }
 
 }
 
-class Country extends CountryEntity{
-  String? id;
-  String? name;
-  String? slug;
-  String? code;
+class Subdivision {
+  Subdivision({
+    required this.id,
+    required this.name,
+    required this.slug,
+    required this.code,
+  });
+  late final String id;
+  late final String name;
+  late final String slug;
+  late final String code;
 
-  Country({this.id, this.name, this.slug, super.code});
-
-  Country.fromJson(Map<String, dynamic> json) {
+  Subdivision.fromJson(Map<String, dynamic> json){
     id = json['id'];
     name = json['name'];
     slug = json['slug'];
@@ -197,26 +194,53 @@ class Country extends CountryEntity{
   }
 }
 
+class Continent {
+  Continent({
+    required this.id,
+    required this.name,
+    required this.slug,
+    required this.code,
+  });
+  late final String id;
+  late final String name;
+  late final String slug;
+  late final String code;
+
+  Continent.fromJson(Map<String, dynamic> json){
+    id = json['id'];
+    name = json['name'];
+    slug = json['slug'];
+    code = json['code'];
+  }
+
+}
+
 class Location {
-  double? lat;
-  double? lon;
+  Location({
+    required this.lat,
+    required this.lon,
+  });
+  late final double lat;
+  late final double lon;
 
-  Location({this.lat, this.lon});
-
-  Location.fromJson(Map<String, dynamic> json) {
+  Location.fromJson(Map<String, dynamic> json){
     lat = json['lat'];
     lon = json['lon'];
   }
+
 }
 
 class AlternativeDeparturePoints {
-  String? id;
-  double? distance;
-  double? duration;
+  AlternativeDeparturePoints({
+    required this.id,
+    required this.distance,
+    required this.duration,
+  });
+  late final String id;
+  late final int? distance;
+  late final int? duration;
 
-  AlternativeDeparturePoints({this.id, this.distance, this.duration});
-
-  AlternativeDeparturePoints.fromJson(Map<String, dynamic> json) {
+  AlternativeDeparturePoints.fromJson(Map<String, dynamic> json){
     id = json['id'];
     distance = json['distance'];
     duration = json['duration'];
@@ -224,50 +248,94 @@ class AlternativeDeparturePoints {
 }
 
 class Tags {
-  String? tag;
-  int? monthTo;
-  int? monthFrom;
+  Tags({
+    required this.tag,
+    required this.monthTo,
+    required this.monthFrom,
+  });
+  late final String tag;
+  late final int monthTo;
+  late final int monthFrom;
 
-  Tags({this.tag, this.monthTo, this.monthFrom});
-
-  Tags.fromJson(Map<String, dynamic> json) {
+  Tags.fromJson(Map<String, dynamic> json){
     tag = json['tag'];
     monthTo = json['month_to'];
     monthFrom = json['month_from'];
   }
 }
 
-class CarRentals {
-  int? providerId;
-  List<String>? providersLocations;
+class Special {
+  Special({
+    required this.id,
+    required this.name,
+    required this.slug,
+  });
+  late final String id;
+  late final String name;
+  late final String slug;
 
-  CarRentals({this.providerId, this.providersLocations});
-
-  CarRentals.fromJson(Map<String, dynamic> json) {
-    providerId = json['provider_id'];
-    providersLocations = json['providers_locations'].cast<String>();
+  Special.fromJson(Map<String, dynamic> json){
+    id = json['id'];
+    name = json['name'];
+    slug = json['slug'];
   }
+}
+
+class TouristRegion {
+  TouristRegion({
+    required this.id,
+    required this.name,
+    required this.slug,
+  });
+  late final String id;
+  late final String name;
+  late final String slug;
+
+  TouristRegion.fromJson(Map<String, dynamic> json){
+    id = json['id'];
+    name = json['name'];
+    slug = json['slug'];
+  }
+}
+
+class CarRentals {
+  CarRentals({
+    required this.providerId,
+    required this.providersLocations,
+  });
+  late final int providerId;
+  late final List<String> providersLocations;
+
+  CarRentals.fromJson(Map<String, dynamic> json){
+    providerId = json['provider_id'];
+    providersLocations = List.castFrom<dynamic, String>(json['providers_locations']);
+  }
+
 }
 
 class Meta {
-  Locale? locale;
+  Meta({
+    required this.locale,
+  });
+  late final Locale locale;
 
-  Meta({this.locale});
-
-  Meta.fromJson(Map<String, dynamic> json) {
-    locale =
-    json['locale'] != null ? Locale.fromJson(json['locale']) : null;
+  Meta.fromJson(Map<String, dynamic> json){
+    locale = Locale.fromJson(json['locale']);
   }
+
 }
 
-class Locale extends LocaleEntity{
-  String? code;
-  String? status;
+class Locale {
+  Locale({
+    required this.code,
+    required this.status,
+  });
+  late final String code;
+  late final String status;
 
-  Locale({super.code, super.status});
-
-  Locale.fromJson(Map<String, dynamic> json) {
+  Locale.fromJson(Map<String, dynamic> json){
     code = json['code'];
     status = json['status'];
   }
+
 }

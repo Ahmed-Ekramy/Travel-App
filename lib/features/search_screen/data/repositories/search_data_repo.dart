@@ -11,6 +11,6 @@ class SearchDataRepo extends SearchDomainRepo{
   SearchDataRepo(this.searchDto);
 
   @override
-  Future<Either<Failures, SearchEntity>> location() =>searchDto.location();
+  Future<Either<Failures, SearchEntity>> location({required String name}) =>searchDto.location(name: name);
 
 }
