@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/core/theming/text_style.dart';
-
 import '../tabs/go_back_tab.dart';
 import '../tabs/go_tab.dart';
 import '../tabs/multiple_trip_tabs.dart';

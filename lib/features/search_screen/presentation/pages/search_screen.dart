@@ -9,9 +9,7 @@ import '../widgets/item_list_last_search.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({required this.hintText1, super.key});
-
   final String hintText1;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,9 +25,11 @@ class SearchScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppTextFormField(
+                    // controller: SearchCubit.get(context).searchController,
                     hintText: hintText1,
-                    onChanged: (p) {
-                      SearchCubit.get(context).location(name: p);
+                    icon: TextInputAction.search,
+                    onChanged: (r) {
+                      SearchCubit.get(context).location(name: r);
                     },
                   ),
                   SizedBox(
@@ -44,9 +44,16 @@ class SearchScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child:  ListView.builder(
+                      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
                       itemBuilder: (context, index) =>
-                           ItemListSameSearch(
-                             searchList: SearchCubit.get(context).searchList[index], ),
+                          InkWell(
+                            onTap: () {
+                              SearchCubit.get(context).onSelect("${SearchCubit.get(context).searchList[index].name}");
+                              Navigator.pop(context);
+                            },
+                            child: ItemListSameSearch(
+                                 searchList: SearchCubit.get(context).searchList[index], ),
+                          ),
                       itemCount: SearchCubit.get(context).searchList.length,
                     ),
                   ),

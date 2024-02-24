@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextFormField extends StatelessWidget {
-  const AppTextFormField(
+   const AppTextFormField(
       {super.key, this.preIcon,
       this.contentPadding,
       this.hintText,
       this.focusedBorder,
-      this.enabledBorder, this.isObscureText, this.suffixIcon,this.onChanged});
+      this.enabledBorder, this.isObscureText, this.suffixIcon,this.onChanged,this.icon, this.controller});
   final bool? isObscureText;
   final Widget? preIcon;
   final Widget? suffixIcon;
@@ -16,10 +16,15 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
  final Function(String)?onChanged;
+ final TextInputAction? icon;
+final TextEditingController? controller ;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextFormField(
+
+        controller:controller ,
+        textInputAction:icon ,
         onChanged:onChanged,
         obscureText: isObscureText ?? false,
         textAlign: TextAlign.start,

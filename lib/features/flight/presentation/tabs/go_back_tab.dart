@@ -13,25 +13,20 @@ class GoAndBackTabs extends StatelessWidget {
       child: Column(
         children: [
           const GoItem(
-            "assets/svg/Air Shipping.svg",
-            'Departure',
-            'Select country of departure',
+            image: "assets/svg/Air Shipping.svg",
+            text1: 'Departure',
+            text2: 'Select country of departure',
           ),
           const GoItem(
-              "assets/svg/Airplane.svg", 'arrival', 'Choose a country of arrival'),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GoItem("assets/svg/calendar-edit.svg", 'Departure Date',
-                  'Select Date'),
-              GoItem("assets/svg/calendar-edit.svg", 'Return Date',
-                  'Select Date'),
-            ],
-          ),
-          const GoItem("assets/svg/user-info.svg", 'Number of passengers', '1 Adult'),
+              image: "assets/svg/Airplane.svg", text1: 'arrival', text2: 'Choose a country of arrival'),
+          const GoItem(image: "assets/svg/calendar-edit.svg", text1: 'Departure Date',
+              text2: 'Select Date'),
+          const GoItem(image: "assets/svg/calendar-edit.svg", text1: 'Return Date',
+              text2: 'Select Date'),
+          const GoItem(image: "assets/svg/user-info.svg", text1: 'Number of passengers', text2: '1 Adult'),
           const GoItem(
-              "assets/svg/Flight Seat.svg", 'Travel class', 'Economic degree'),
-          const Expanded(child: SizedBox()),
+              image: "assets/svg/Flight Seat.svg", text1: 'Travel class', text2:'Economic degree'),
+          SizedBox(height: 220.h,),
           elevatedButton(),
         ],
       ),

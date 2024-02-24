@@ -86,9 +86,8 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (context) {
             final arg = settings.arguments as Map<String, dynamic>;
-            return BlocProvider(
-              create: (context) => SearchCubit(SearchUseCase(getIt.get<SearchDataRepo>())),
-              child: SearchScreen(hintText1: arg["name"]),
+            return SearchScreen(
+              hintText1: arg["name"],
             );
           },
         );
@@ -111,10 +110,7 @@ class AppRoute {
               ),
             );
           },
-
         );
     }
   }
-
 }
-
