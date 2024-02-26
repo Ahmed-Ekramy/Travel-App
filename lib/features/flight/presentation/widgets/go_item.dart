@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/core/theming/text_style.dart';
-
-import '../../../search_screen/presentation/manager/search_cubit.dart';
-
 class GoItem extends StatelessWidget {
   const GoItem({this.image, this.text1, this.text2, super.key});
 

@@ -1,8 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_app/core/theming/text_style.dart';
+import 'package:travel_app/features/flight/presentation/manager/flight_cubit.dart';
 import '../widgets/max_min_item.dart';
 
 class NumberOfPassengers extends StatelessWidget {
@@ -10,6 +13,11 @@ class NumberOfPassengers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocConsumer<FlightCubit, FlightState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  builder: (context, state) {
     return Scaffold(
       appBar: AppBar( actions: [
         Padding(
@@ -45,7 +53,41 @@ class NumberOfPassengers extends StatelessWidget {
                       style: readexPro12w400().copyWith(color: Colors.grey))
                 ],
               ),
-              maxMinItem(),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).minAdult();
+                    },
+                    child: const Icon(
+                      FontAwesomeIcons.circleMinus,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Text(
+                    "${ FlightCubit.get(context).numAdult}",
+                    style: readexPro12w400().copyWith(
+                        color: Colors.black, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).maxAdult();
+                    },
+                    child: const Icon(
+                      Icons.add_circle_outline,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           SizedBox(
@@ -70,7 +112,41 @@ class NumberOfPassengers extends StatelessWidget {
                       style: readexPro12w400().copyWith(color: Colors.grey))
                 ],
               ),
-              maxMinItem(),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).minChild();
+                    },
+                    child: const Icon(
+                      FontAwesomeIcons.circleMinus,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Text(
+                    "${ FlightCubit.get(context).numChild}",
+                    style: readexPro12w400().copyWith(
+                        color: Colors.black, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).maxChild();
+                    },
+                    child: const Icon(
+                      Icons.add_circle_outline,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           SizedBox(
@@ -95,7 +171,41 @@ class NumberOfPassengers extends StatelessWidget {
                       style: readexPro12w400().copyWith(color: Colors.grey))
                 ],
               ),
-              maxMinItem(),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).minBaby();
+                    },
+                    child: const Icon(
+                      FontAwesomeIcons.circleMinus,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Text(
+                    "${ FlightCubit.get(context).numBaby}",
+                    style: readexPro12w400().copyWith(
+                        color: Colors.black, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).maxBaby();
+                    },
+                    child: const Icon(
+                      Icons.add_circle_outline,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           SizedBox(
@@ -112,8 +222,41 @@ class NumberOfPassengers extends StatelessWidget {
               textAlign: TextAlign.center,
               style: readexPro16w700()
               ),
-
-            maxMinItem(),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).minAircraftBag();
+                    },
+                    child: const Icon(
+                      FontAwesomeIcons.circleMinus,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Text(
+                    "${ FlightCubit.get(context).numAircraftBag}",
+                    style: readexPro12w400().copyWith(
+                        color: Colors.black, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).maxAircraftBag();
+                    },
+                    child: const Icon(
+                      Icons.add_circle_outline,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                ],
+              ),
           ],),
           SizedBox(height: 18.h,),
           Row(
@@ -125,10 +268,46 @@ class NumberOfPassengers extends StatelessWidget {
               textAlign: TextAlign.center,
               style: readexPro16w700()
               ),
-            maxMinItem(),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).minCheckBags();
+                    },
+                    child: const Icon(
+                      FontAwesomeIcons.circleMinus,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Text(
+                    "${ FlightCubit.get(context).numCheckBag}",
+                    style: readexPro12w400().copyWith(
+                        color: Colors.black, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      FlightCubit.get(context).maxCheckBags();
+                    },
+                    child: const Icon(
+                      Icons.add_circle_outline,
+                      size: 30,
+                      color: Color(0xff001A72),
+                    ),
+                  ),
+                ],
+              ),
           ],),
         ]),
       ),
     );
+  },
+);
   }
 }

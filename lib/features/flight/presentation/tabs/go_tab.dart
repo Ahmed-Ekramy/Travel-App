@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/core/routing/route.dart';
-import 'package:travel_app/features/search_screen/presentation/manager/search_cubit.dart';
+import 'package:travel_app/features/flight/presentation/manager/flight_cubit.dart';
 import '../../../../core/shard_widget/shard_widget.dart';
 import '../widgets/go_item.dart';
 
@@ -13,7 +13,7 @@ class GoTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 30.h),
-      child: BlocBuilder<SearchCubit, SearchState>(
+      child: BlocBuilder<FlightCubit, FlightState>(
         builder: (context, state) {
           return SingleChildScrollView(
             child: Column(
@@ -28,9 +28,9 @@ class GoTab extends StatelessWidget {
                   child: GoItem(
                       image: "assets/svg/Air Shipping.svg",
                       text1: 'Departure',
-                      text2: SearchCubit.get(context).nameDeparture.isEmpty
+                      text2: FlightCubit.get(context).nameDeparture.isEmpty
                           ? "Select country of departure"
-                          : SearchCubit.get(context).nameDeparture),
+                          : FlightCubit.get(context).nameDeparture),
                 ),
                 InkWell(
                   onTap: () {
@@ -42,18 +42,18 @@ class GoTab extends StatelessWidget {
                   child: GoItem(
                       image: "assets/svg/Airplane.svg",
                       text1: 'arrival',
-                      text2: SearchCubit.get(context).nameArrival.isEmpty
+                      text2: FlightCubit.get(context).nameArrival.isEmpty
                           ? 'Choose a country of arrival'
-                          : SearchCubit.get(context).nameArrival),
+                          : FlightCubit.get(context).nameArrival),
                 ),
                 InkWell(
                   onTap: () {
-                    SearchCubit.get(context).chooseDate(context);
+                    FlightCubit.get(context).chooseDate(context);
                   },
                   child:  GoItem(
                       image: "assets/svg/calendar-edit.svg",
                       text1: 'Departure Date',
-                      text2: "${SearchCubit.get(context).selectedDate}".substring(0,10)),
+                      text2: "${FlightCubit.get(context).selectedDate}".substring(0,10)),
                 ),
                 InkWell(
                     onTap: () {

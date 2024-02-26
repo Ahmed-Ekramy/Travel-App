@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/core/shard_widget/button.dart';
 import 'package:travel_app/core/shard_widget/text_form_field.dart';
 import 'package:travel_app/core/theming/text_style.dart';
-import 'package:travel_app/features/search_screen/presentation/manager/search_cubit.dart';
+import '../../../flight/presentation/manager/flight_cubit.dart';
 import '../widgets/item_list_last_search.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -14,7 +14,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocConsumer<SearchCubit, SearchState>(
+      child: BlocConsumer<FlightCubit, FlightState>(
         listener: (context, state) {
           // TODO: implement listener
         },
@@ -30,7 +30,7 @@ class SearchScreen extends StatelessWidget {
                     hintText: hintText1,
                     icon: TextInputAction.search,
                     onChanged: (r) {
-                      SearchCubit.get(context).location(name: r);
+                      FlightCubit.get(context).location(name: r);
                     },
                   ),
                   SizedBox(
@@ -50,14 +50,14 @@ class SearchScreen extends StatelessWidget {
                           InkWell(
                             onTap: () {
                               travel ==false?
-                              SearchCubit.get(context).onSelectDeparture( " ${ SearchCubit.get(context).searchList[index].name}"):
-                              SearchCubit.get(context).onSelectArrival( " ${ SearchCubit.get(context).searchList[index].name}");
+                              FlightCubit.get(context).onSelectDeparture( " ${ FlightCubit.get(context).searchList[index].name}"):
+                              FlightCubit.get(context).onSelectArrival( " ${ FlightCubit.get(context).searchList[index].name}");
                               Navigator.pop(context);
                             },
                             child: ItemListSameSearch(
-                                 searchList: SearchCubit.get(context).searchList[index], ),
+                                 searchList: FlightCubit.get(context).searchList[index], ),
                           ),
-                      itemCount: SearchCubit.get(context).searchList.length,
+                      itemCount: FlightCubit.get(context).searchList.length,
                     ),
                   ),
                   SizedBox(
