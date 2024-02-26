@@ -8,8 +8,9 @@ import 'package:travel_app/features/search_screen/presentation/manager/search_cu
 import '../widgets/item_list_last_search.dart';
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({required this.hintText1, super.key});
+  const SearchScreen({required this.hintText1, required this.travel,super.key});
   final String hintText1;
+  final bool travel;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -48,7 +49,9 @@ class SearchScreen extends StatelessWidget {
                       itemBuilder: (context, index) =>
                           InkWell(
                             onTap: () {
-                              SearchCubit.get(context).onSelect("${SearchCubit.get(context).searchList[index].name}");
+                              travel ==false?
+                              SearchCubit.get(context).onSelectDeparture( " ${ SearchCubit.get(context).searchList[index].name}"):
+                              SearchCubit.get(context).onSelectArrival( " ${ SearchCubit.get(context).searchList[index].name}");
                               Navigator.pop(context);
                             },
                             child: ItemListSameSearch(

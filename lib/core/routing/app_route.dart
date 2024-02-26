@@ -6,6 +6,7 @@ import 'package:travel_app/features/search_screen/data/repositories/search_data_
 import 'package:travel_app/features/search_screen/domain/use_cases/search_use_case.dart';
 import 'package:travel_app/features/search_screen/presentation/manager/search_cubit.dart';
 import 'package:travel_app/features/search_screen/presentation/pages/search_screen.dart';
+import '../../features/economic_degree/presentation/pages/economic_degree.dart';
 import '../../features/flight/presentation/pages/flight_screen.dart';
 import '../../features/forgot_password/presentation/pages/forgot_password_screen.dart';
 import '../../features/home/presentation/pages/home.dart';
@@ -87,7 +88,14 @@ class AppRoute {
           builder: (context) {
             final arg = settings.arguments as Map<String, dynamic>;
             return SearchScreen(
-              hintText1: arg["name"],
+              hintText1: arg["name"], travel: arg["bool"],
+            );
+          },
+        );
+  case (Routes.economicDegree):
+        return MaterialPageRoute(
+          builder: (context) {
+            return const EconomicDegree(
             );
           },
         );

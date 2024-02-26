@@ -12,4 +12,6 @@ class SearchFailure extends SearchState {
   String errorMassage;
   SearchFailure(this.errorMassage);
 }
-class SearchOnSelect extends SearchState {}
+class SearchOnSelectDeparture extends SearchState {}
+class SearchOnSelectArrival extends SearchState {}
+class SearchOnSelectDate extends SearchState {}

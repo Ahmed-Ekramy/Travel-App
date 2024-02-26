@@ -17,34 +17,44 @@ class GoTab extends StatelessWidget {
         builder: (context, state) {
           return SingleChildScrollView(
             child: Column(
-              children: [
+              children: <Widget>[
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, Routes.search, arguments: {
                       "name": 'Select country of departure',
+                      "bool": false
                     });
                   },
                   child: GoItem(
                       image: "assets/svg/Air Shipping.svg",
                       text1: 'Departure',
-                      text2: SearchCubit.get(context).name.isEmpty
+                      text2: SearchCubit.get(context).nameDeparture.isEmpty
                           ? "Select country of departure"
-                          : SearchCubit.get(context).name),
+                          : SearchCubit.get(context).nameDeparture),
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.search,
-                        arguments: {"name": 'Choose a country of arrival'});
+                    Navigator.pushNamed(context, Routes.search, arguments: {
+                      "name": 'Choose a country of arrival',
+                      "bool": true
+                    });
                   },
-                  child: const GoItem(
+                  child: GoItem(
                       image: "assets/svg/Airplane.svg",
                       text1: 'arrival',
-                      text2: 'Choose a country of arrival'),
+                      text2: SearchCubit.get(context).nameArrival.isEmpty
+                          ? 'Choose a country of arrival'
+                          : SearchCubit.get(context).nameArrival),
                 ),
-                const GoItem(
-                    image: "assets/svg/calendar-edit.svg",
-                    text1: 'Departure Date',
-                    text2: 'Select Date'),
+                InkWell(
+                  onTap: () {
+                    SearchCubit.get(context).chooseDate(context);
+                  },
+                  child:  GoItem(
+                      image: "assets/svg/calendar-edit.svg",
+                      text1: 'Departure Date',
+                      text2: "${SearchCubit.get(context).selectedDate}".substring(0,10)),
+                ),
                 InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, Routes.passengers);
@@ -55,14 +65,16 @@ class GoTab extends StatelessWidget {
                         text2: "1 Adult")),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.travelClass);
+                    Navigator.pushNamed(context, Routes.economicDegree);
                   },
                   child: const GoItem(
                       image: "assets/svg/Flight Seat.svg",
                       text1: " Travel class",
                       text2: "Economic degree"),
                 ),
-             SizedBox(height: 350.h,),
+                SizedBox(
+                  height: 350.h,
+                ),
                 elevatedButton(),
               ],
             ),
@@ -71,4 +83,5 @@ class GoTab extends StatelessWidget {
       ),
     );
   }
+
 }

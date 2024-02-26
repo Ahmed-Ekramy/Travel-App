@@ -12,4 +12,5 @@ class Routes{
   static const String  prof="prof";
   static const String  profEditScreen="profEditScreen";
   static const String  searchResultScreen="searchResultScreen";
+  static const String  economicDegree="economicDegree";
 }
