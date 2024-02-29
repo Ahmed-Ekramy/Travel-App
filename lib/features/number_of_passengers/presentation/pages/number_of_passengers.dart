@@ -6,11 +6,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_app/core/theming/text_style.dart';
 import 'package:travel_app/features/flight/presentation/manager/flight_cubit.dart';
-import '../widgets/max_min_item.dart';
 
 class NumberOfPassengers extends StatelessWidget {
-  const NumberOfPassengers({Key? key}) : super(key: key);
-
+   const NumberOfPassengers({ required this.sumFun,Key? key}) : super(key: key);
+final bool sumFun;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FlightCubit, FlightState>(

@@ -2,10 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 import 'package:travel_app/core/constant/constant.dart';
 import 'package:travel_app/core/failure/failure.dart';
-import 'package:travel_app/features/search_screen/data/data_sources/search_dto.dart';
+import 'package:travel_app/features/flight/data/data_sources/flight_dto.dart';
 import '../models/search_model.dart';
 
-class SearchRemoteDto extends SearchDto {
+class FlightRemoteDto extends FlightDto {
   Dio dio = Dio();
   @override
   Future<Either<Failures, SearchModel>> location({required String name})async {

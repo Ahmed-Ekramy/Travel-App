@@ -6,7 +6,7 @@ import '../../../../core/shard_widget/text_form_field.dart';
 import '../../../../core/theming/text_style.dart';
 
 class NewPassword extends StatefulWidget {
-  const NewPassword({Key? key}) : super(key: key);
+  const NewPassword({Key? key,}) : super(key: key);
 
   @override
   State<NewPassword> createState() => _NewPasswordState();

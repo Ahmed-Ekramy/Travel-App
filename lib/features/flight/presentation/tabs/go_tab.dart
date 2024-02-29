@@ -8,21 +8,21 @@ import '../widgets/go_item.dart';
 
 class GoTab extends StatelessWidget {
   const GoTab({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<FlightCubit, FlightState>(
+  builder: (context, state) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 30.h),
-      child: BlocBuilder<FlightCubit, FlightState>(
-        builder: (context, state) {
-          return SingleChildScrollView(
+          child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, Routes.search, arguments: {
                       "name": 'Select country of departure',
-                      "bool": false
+                      "searchType":"GoingDeparture",
+                      "Bloc": BlocProvider.of<FlightCubit>(context)
                     });
                   },
                   child: GoItem(
@@ -36,7 +36,8 @@ class GoTab extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, Routes.search, arguments: {
                       "name": 'Choose a country of arrival',
-                      "bool": true
+                      "searchType":"GoingArrival",
+                      "Bloc":  BlocProvider.of<FlightCubit>(context)
                     });
                   },
                   child: GoItem(
@@ -48,21 +49,24 @@ class GoTab extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    FlightCubit.get(context).chooseDate(context);
+                    FlightCubit.get(context).chooseGoRoundDate(context);
                   },
                   child:  GoItem(
                       image: "assets/svg/calendar-edit.svg",
                       text1: 'Departure Date',
-                      text2: "${FlightCubit.get(context).selectedDate}".substring(0,10)),
+                      text2: "${FlightCubit.get(context).selectedGoDate}".substring(0,10)),
                 ),
                 InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, Routes.passengers);
+                      Navigator.pushNamed(context, Routes.passengers,arguments: {
+                        "Bloc": BlocProvider.of<FlightCubit>(context),
+                        "sumFun":true
+                      });
                     },
-                    child: const GoItem(
+                    child:  GoItem(
                         image: "assets/svg/user-info.svg",
                         text1: "Number of passengers",
-                        text2: "1 Adult")),
+                        text2: "${FlightCubit.get(context).sumNumPass()}")),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, Routes.economicDegree);
@@ -78,10 +82,9 @@ class GoTab extends StatelessWidget {
                 elevatedButton(),
               ],
             ),
-          );
-        },
-      ),
-    );
+          ));
+  },
+);
   }
 
 }

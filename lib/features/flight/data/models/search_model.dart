@@ -1,4 +1,4 @@
-import 'package:travel_app/features/search_screen/domain/entities/search_entity.dart';
+import 'package:travel_app/features/flight/domain/entities/search_entity.dart';
 
 class SearchModel extends SearchEntity{
   Meta? meta;

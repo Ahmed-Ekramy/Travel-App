@@ -8,19 +8,23 @@ import '../../../flight/presentation/manager/flight_cubit.dart';
 import '../widgets/item_list_last_search.dart';
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({required this.hintText1, required this.travel,super.key});
+  const SearchScreen({required this.hintText1,
+    required this.roundTrip,
+    super.key});
+
   final String hintText1;
-  final bool travel;
+  final String roundTrip;
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocConsumer<FlightCubit, FlightState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
-        builder: (context, state) {
-          return Scaffold(
-            body: Padding(
+    return BlocConsumer<FlightCubit, FlightState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return Scaffold(
+          body: SafeArea(
+            child: Padding(
               padding: EdgeInsets.symmetric(vertical: 50.0.h, horizontal: 20.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,20 +48,46 @@ class SearchScreen extends StatelessWidget {
                     height: 20.h,
                   ),
                   Expanded(
-                    child:  ListView.builder(
-                      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
+                    child: ListView.builder(
+                      keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.manual,
                       itemBuilder: (context, index) =>
                           InkWell(
                             onTap: () {
-                              travel ==false?
-                              FlightCubit.get(context).onSelectDeparture( " ${ FlightCubit.get(context).searchList[index].name}"):
-                              FlightCubit.get(context).onSelectArrival( " ${ FlightCubit.get(context).searchList[index].name}");
+                              if (roundTrip == "GoingDeparture") {
+                                FlightCubit.get(context).onSelectDeparture(
+                                    " ${FlightCubit
+                                        .get(context)
+                                        .searchList[index].name}");
+                              } else if (roundTrip == "GoingArrival") {
+                                FlightCubit.get(context).onSelectArrival(
+                                    " ${FlightCubit
+                                        .get(context)
+                                        .searchList[index].name}");
+                              } else if (roundTrip == "RoundDeparture") {
+                                FlightCubit.get(context)
+                                    .onSelectDepartureRoundTrip("${FlightCubit
+                                    .get(context)
+                                    .searchList[index].name}");
+                              }else if(roundTrip == "RoundArrival"){
+                                FlightCubit.get(context)
+                                    .onSelectArrivalRound("${FlightCubit
+                                    .get(context)
+                                    .searchList[index].name}");
+                              }
                               Navigator.pop(context);
                             },
                             child: ItemListSameSearch(
-                                 searchList: FlightCubit.get(context).searchList[index], ),
+                              searchList:
+                              FlightCubit
+                                  .get(context)
+                                  .searchList[index],
+                            ),
                           ),
-                      itemCount: FlightCubit.get(context).searchList.length,
+                      itemCount: FlightCubit
+                          .get(context)
+                          .searchList
+                          .length,
                     ),
                   ),
                   SizedBox(
@@ -71,9 +101,9 @@ class SearchScreen extends StatelessWidget {
                 ],
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

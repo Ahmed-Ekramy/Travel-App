@@ -5,9 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:travel_app/travel_app.dart';
 import 'core/di/di.dart';
 import 'core/helper/bloc_observer.dart';
-import 'features/flight/presentation/manager/flight_cubit.dart';
-import 'features/search_screen/data/repositories/search_data_repo.dart';
-import 'features/search_screen/domain/use_cases/search_use_case.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +19,7 @@ void main() async{
           supportedLocales: const [Locale('en'), Locale('ar')],
           path: 'assets/localizations',
           fallbackLocale: const Locale('en'),
-      child: BlocProvider(
-          create: (context) => FlightCubit(SearchUseCase(getIt.get<SearchDataRepo>())),
-          child: const TravelApp())));
+      child: const TravelApp()));
 }
 final getIt = GetIt.instance;
 

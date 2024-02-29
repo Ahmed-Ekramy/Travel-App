@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/theming/text_style.dart';
-import '../../domain/entities/search_entity.dart';
+import '../../../flight/domain/entities/search_entity.dart';
 
 class ItemListSameSearch extends StatelessWidget {
   const ItemListSameSearch({

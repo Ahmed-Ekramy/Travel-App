@@ -12,8 +12,12 @@ class SearchFailure extends FlightState {
   SearchFailure(this.errorMassage);
 }
 class SearchOnSelectDeparture extends FlightState {}
+class SearchOnSelectDepartureRoundTrip extends FlightState {}
 class SearchOnSelectArrival extends FlightState {}
-class SearchOnSelectDate extends FlightState {}
+class SearchOnSelectArrivalRound extends FlightState {}
+class SearchOnSelectGoDate extends FlightState {}
+class SearchOnSelectGoRoundDate extends FlightState {}
+class SearchOnSelectBackRoundDate extends FlightState {}
 class MaxAdult extends FlightState {}
 class MinAdult extends FlightState {}
 class MaxChild extends FlightState {}
@@ -24,4 +28,5 @@ class MaxAirBag extends FlightState {}
 class MinAirBag extends FlightState {}
 class MaxCheckBag extends FlightState {}
 class MinCheckBag extends FlightState {}
+class SumAddPass extends FlightState {}
 

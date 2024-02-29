@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travel_app/core/theming/text_style.dart';
+import '../manager/flight_cubit.dart';
 import '../tabs/go_back_tab.dart';
 import '../tabs/go_tab.dart';
 import '../tabs/multiple_trip_tabs.dart';
@@ -19,12 +21,12 @@ class FlightScreen extends StatelessWidget {
               labelColor: Colors.blue,
               labelStyle: readexPro16w700(),
               unselectedLabelStyle:
-                  readexPro12w400().copyWith(color: Colors.grey),
+              readexPro12w400().copyWith(color: Colors.grey),
               tabs: const [
                 Tab(
                     child: Text(
-                      "Going"
-                )),
+                        "Going"
+                    )),
                 Tab(child: Text("Round trip")),
                 Tab(child: Text("Multiple trips ",)),
               ]),
