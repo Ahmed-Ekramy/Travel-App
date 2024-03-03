@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
         extendBody: true,
         body: tabs[currentIndex],
         bottomNavigationBar: Container(
-          height: 120.h,
+          height: 125.h,
             color: Colors.white,
           child: Align(
             alignment: Alignment.bottomCenter,

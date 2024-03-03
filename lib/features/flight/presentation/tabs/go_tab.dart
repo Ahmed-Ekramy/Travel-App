@@ -60,7 +60,7 @@ class GoTab extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(context, Routes.passengers,arguments: {
                         "Bloc": BlocProvider.of<FlightCubit>(context),
-                        "sumFun":true
+                        "sumFun":"sumNumPassGo"
                       });
                     },
                     child:  GoItem(
@@ -69,15 +69,20 @@ class GoTab extends StatelessWidget {
                         text2: "${FlightCubit.get(context).sumNumPass()}")),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.economicDegree);
+                    Navigator.pushNamed(context, Routes.economicDegree,arguments: {
+                      "Bloc":  BlocProvider.of<FlightCubit>(context),
+                      "nameClass":"Select Travel Go Class"
+                    });
                   },
-                  child: const GoItem(
+                  child:  GoItem(
                       image: "assets/svg/Flight Seat.svg",
                       text1: " Travel class",
-                      text2: "Economic degree"),
+                      text2:  FlightCubit.get(context).nameTravelClass.isEmpty
+                          ? 'Select Travel class'
+                          : FlightCubit.get(context).nameTravelClass),
                 ),
                 SizedBox(
-                  height: 350.h,
+                  height: 200.h,
                 ),
                 elevatedButton(),
               ],

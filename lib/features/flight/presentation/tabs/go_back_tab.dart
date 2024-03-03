@@ -71,20 +71,30 @@ final bool x=false;
               onTap: () {
                 Navigator.pushNamed(context, Routes.passengers,arguments: {
                   "Bloc": BlocProvider.of<FlightCubit>(context),
-                  "sumFun":false
+                  "sumFun":"sumNumPassRound"
                 });
               },
               child:  GoItem(
                   image: "assets/svg/user-info.svg",
                   text1: 'Number of passengers',
-                  text2:"${FlightCubit.get(context).sumNumPass()}"),
+                  text2:"${FlightCubit.get(context).sumNumRoundPass()}"),
             ),
-            const GoItem(
-                image: "assets/svg/Flight Seat.svg",
-                text1: 'Travel class',
-                text2: 'Economic degree'),
+             InkWell(
+               onTap: () {
+                 Navigator.pushNamed(context, Routes.economicDegree,arguments: {
+                   "Bloc":  BlocProvider.of<FlightCubit>(context),
+                   "nameClass":"Select Travel Round Class"
+                 });
+               },
+               child: GoItem(
+                  image: "assets/svg/Flight Seat.svg",
+                  text1: 'Travel class',
+                  text2:   FlightCubit.get(context).nameTravelRoundClass.isEmpty
+                      ? 'Select Travel class'
+                      : FlightCubit.get(context).nameTravelRoundClass),
+             ),
             SizedBox(
-              height: 230.h,
+              height: 70.h,
             ),
             elevatedButton(),
           ],

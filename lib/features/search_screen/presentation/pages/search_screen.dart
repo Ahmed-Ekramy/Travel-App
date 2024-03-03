@@ -59,17 +59,20 @@ class SearchScreen extends StatelessWidget {
                                     " ${FlightCubit
                                         .get(context)
                                         .searchList[index].name}");
-                              } else if (roundTrip == "GoingArrival") {
+                              } else if
+                              (roundTrip == "GoingArrival") {
                                 FlightCubit.get(context).onSelectArrival(
                                     " ${FlightCubit
                                         .get(context)
                                         .searchList[index].name}");
-                              } else if (roundTrip == "RoundDeparture") {
+                              }
+                              else if (roundTrip == "RoundDeparture") {
                                 FlightCubit.get(context)
                                     .onSelectDepartureRoundTrip("${FlightCubit
                                     .get(context)
                                     .searchList[index].name}");
-                              }else if(roundTrip == "RoundArrival"){
+                              }
+                              else if(roundTrip == "RoundArrival"){
                                 FlightCubit.get(context)
                                     .onSelectArrivalRound("${FlightCubit
                                     .get(context)

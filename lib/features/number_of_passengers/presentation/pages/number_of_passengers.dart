@@ -8,8 +8,8 @@ import 'package:travel_app/core/theming/text_style.dart';
 import 'package:travel_app/features/flight/presentation/manager/flight_cubit.dart';
 
 class NumberOfPassengers extends StatelessWidget {
-   const NumberOfPassengers({ required this.sumFun,Key? key}) : super(key: key);
-final bool sumFun;
+   const NumberOfPassengers({ required this.nameFun,Key? key}) : super(key: key);
+final String nameFun;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FlightCubit, FlightState>(
@@ -56,7 +56,12 @@ final bool sumFun;
                 children: [
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).minAdult();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).minAdult();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).minAdultRound();
+                      }
+
                     },
                     child: const Icon(
                       FontAwesomeIcons.circleMinus,
@@ -67,8 +72,9 @@ final bool sumFun;
                   SizedBox(
                     width: 10.w,
                   ),
+
                   Text(
-                    "${ FlightCubit.get(context).numAdult}",
+                    "${nameFun=="sumNumPassGo"? FlightCubit.get(context).numAdult:FlightCubit.get(context).numAdultRound}",
                     style: readexPro12w400().copyWith(
                         color: Colors.black, fontWeight: FontWeight.w500),
                   ),
@@ -77,7 +83,11 @@ final bool sumFun;
                   ),
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).maxAdult();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).maxAdult();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).maxAdultRound();
+                      }
                     },
                     child: const Icon(
                       Icons.add_circle_outline,
@@ -115,7 +125,11 @@ final bool sumFun;
                 children: [
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).minChild();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).minChild();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).minChildRound();
+                      }
                     },
                     child: const Icon(
                       FontAwesomeIcons.circleMinus,
@@ -127,7 +141,7 @@ final bool sumFun;
                     width: 10.w,
                   ),
                   Text(
-                    "${ FlightCubit.get(context).numChild}",
+                    "${nameFun=="sumNumPassGo"? FlightCubit.get(context).numChild:FlightCubit.get(context).numChildRound}",
                     style: readexPro12w400().copyWith(
                         color: Colors.black, fontWeight: FontWeight.w500),
                   ),
@@ -136,7 +150,11 @@ final bool sumFun;
                   ),
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).maxChild();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).maxChild();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).maxChildRound();
+                      }
                     },
                     child: const Icon(
                       Icons.add_circle_outline,
@@ -174,8 +192,11 @@ final bool sumFun;
                 children: [
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).minBaby();
-                    },
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).minBaby();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).minBabyRound();
+                      }                    },
                     child: const Icon(
                       FontAwesomeIcons.circleMinus,
                       size: 30,
@@ -186,7 +207,7 @@ final bool sumFun;
                     width: 10.w,
                   ),
                   Text(
-                    "${ FlightCubit.get(context).numBaby}",
+                    "${nameFun=="sumNumPassGo"? FlightCubit.get(context).numBaby:FlightCubit.get(context).numBabyRound}",
                     style: readexPro12w400().copyWith(
                         color: Colors.black, fontWeight: FontWeight.w500),
                   ),
@@ -195,7 +216,11 @@ final bool sumFun;
                   ),
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).maxBaby();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).maxBaby();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).maxBabyRound();
+                      }
                     },
                     child: const Icon(
                       Icons.add_circle_outline,
@@ -225,7 +250,11 @@ final bool sumFun;
                 children: [
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).minAircraftBag();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).minAircraftBag();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).minAircraftBagRound();
+                      }
                     },
                     child: const Icon(
                       FontAwesomeIcons.circleMinus,
@@ -237,7 +266,7 @@ final bool sumFun;
                     width: 10.w,
                   ),
                   Text(
-                    "${ FlightCubit.get(context).numAircraftBag}",
+                    "${nameFun=="sumNumPassGo"? FlightCubit.get(context).numAircraftBag:FlightCubit.get(context).numAircraftBagRound}",
                     style: readexPro12w400().copyWith(
                         color: Colors.black, fontWeight: FontWeight.w500),
                   ),
@@ -246,7 +275,11 @@ final bool sumFun;
                   ),
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).maxAircraftBag();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).maxAircraftBag();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).maxAircraftBagRound();
+                      }
                     },
                     child: const Icon(
                       Icons.add_circle_outline,
@@ -271,7 +304,11 @@ final bool sumFun;
                 children: [
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).minCheckBags();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).minCheckBags();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).minCheckBagsRound();
+                      }
                     },
                     child: const Icon(
                       FontAwesomeIcons.circleMinus,
@@ -283,7 +320,9 @@ final bool sumFun;
                     width: 10.w,
                   ),
                   Text(
-                    "${ FlightCubit.get(context).numCheckBag}",
+
+                    "${nameFun=="sumNumPassGo"? FlightCubit.get(context).numCheckBag:FlightCubit.get(context).numCheckBagRound}",
+
                     style: readexPro12w400().copyWith(
                         color: Colors.black, fontWeight: FontWeight.w500),
                   ),
@@ -292,7 +331,11 @@ final bool sumFun;
                   ),
                   InkWell(
                     onTap: () {
-                      FlightCubit.get(context).maxCheckBags();
+                      if(nameFun=="sumNumPassGo"){
+                        FlightCubit.get(context).maxCheckBags();
+                      }else if(nameFun=="sumNumPassRound"){
+                        FlightCubit.get(context).maxCheckBagsRound();
+                      }
                     },
                     child: const Icon(
                       Icons.add_circle_outline,

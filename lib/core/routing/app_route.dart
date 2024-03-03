@@ -47,7 +47,8 @@ class AppRoute {
           builder: (context) {
             final arg = settings.arguments as Map<String, dynamic>;
             return BlocProvider<FlightCubit>.value(
-                value: arg["Bloc"], child:  NumberOfPassengers(  sumFun: arg["sumFun"],));
+                value: arg["Bloc"],
+                child: NumberOfPassengers(nameFun: arg["sumFun"],));
           },
         );
 
@@ -84,9 +85,8 @@ class AppRoute {
 
       case (Routes.newPassword):
         return MaterialPageRoute(
-          builder: (context)
-            {
-            return  const NewPassword(
+          builder: (context) {
+            return const NewPassword(
 
             );
           },
@@ -107,7 +107,13 @@ class AppRoute {
       case (Routes.economicDegree):
         return MaterialPageRoute(
           builder: (context) {
-            return const EconomicDegree();
+            final arg = settings.arguments as Map<String, dynamic>;
+            return BlocProvider<FlightCubit>.value(
+              value: arg["Bloc"],
+              child: EconomicDegree(
+                nameClass: arg["nameClass"],
+              ),
+            );
           },
         );
 
