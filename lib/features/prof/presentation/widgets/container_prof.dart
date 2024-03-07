@@ -19,8 +19,8 @@ class ContainerProf extends StatelessWidget {
       width: double.infinity,
       height: 120.h,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.r),
-          border: Border.all(color: Colors.grey)),
+          borderRadius: BorderRadius.circular(10.r),
+          border: Border.all(color: Colors.grey.shade300)),
       child: Row(
         children: [
           SvgPicture.asset(image),

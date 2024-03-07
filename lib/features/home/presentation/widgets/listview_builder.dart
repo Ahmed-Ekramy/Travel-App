@@ -17,7 +17,7 @@ class ListViewBuilder extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) =>  Padding(
           padding:  EdgeInsets.symmetric(horizontal: 10.0.w),
-          child: const ListViewItem(),
+          child: const FittedBox(child: ListViewItem()),
         ),
         itemCount: 10,
       ),

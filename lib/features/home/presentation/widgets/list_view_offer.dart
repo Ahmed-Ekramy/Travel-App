@@ -12,14 +12,14 @@ class ListViewOffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 280.h,
+      height: 300.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) =>  InkWell(
             onTap: () {
               Navigator.pushNamed(context, Routes.offerDetailScreen);
             },
-            child: const ListViewItem()),
+            child: const FittedBox(child: ListViewItem())),
         itemCount: 5,
       ),
     );

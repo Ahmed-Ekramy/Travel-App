@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travel_app/features/flight/domain/entities/search_entity.dart';
+import 'package:travel_app/features/flight/domain/entities/search_tic_entity.dart';
 import 'package:travel_app/features/flight/domain/use_cases/flight_use_case.dart';
-
+import 'package:travel_app/features/flight/domain/use_cases/search_tic_use_case.dart';
 import '../../../economic_degree/data/models/travle_clss_model.dart';
 
 part 'flight_state.dart';
 
 class FlightCubit extends Cubit<FlightState> {
   FlightUseCase searchUseCase;
+  SearchTickUseCase searchTickUseCase;
   String nameDepartureRoundTrip = "";
   String nameDeparture = "";
+  String codeDeparture = "";
   String nameTravelRoundClass = "";
   String nameArrival = "";
+  String codeArrival = "";
   String nameTravelClass = "";
   String nameArrivalRound = "";
   int numAdult = 0;
@@ -63,7 +67,8 @@ class FlightCubit extends Cubit<FlightState> {
   List<dynamic> listTravelClass = [];
   LocationsEntity locationsEntity = LocationsEntity();
 
-  FlightCubit(this.searchUseCase) : super(SearchInitial());
+  FlightCubit(this.searchUseCase, this.searchTickUseCase)
+      : super(SearchInitial());
 
   static FlightCubit get(context) => BlocProvider.of(context);
 
@@ -115,6 +120,8 @@ class FlightCubit extends Cubit<FlightState> {
     );
     if (chosenDate != null) {
       selectedGoDate = chosenDate;
+      print("$selectedGoDate".substring(0, 10));
+      print("$selectedGoDate".substring(26, 37));
     }
     emit(SearchOnSelectGoDate());
   }
@@ -145,13 +152,40 @@ class FlightCubit extends Cubit<FlightState> {
     result.fold((l) {
       emit(SearchFailure(l.message));
     }, (r) {
+      // print(r.locations);
       searchList = r.locations!;
+      // print(searchList[1].code);
       emit(SearchSuccess(r));
     });
   }
 
-  void onSelectDeparture(String departure) {
+  void searchTick({
+    required String flyFrom,
+    required String flyTo,
+    // required String dateFrom,
+    // required String dateTo,
+  }) async {
+    var result = await searchTickUseCase.call(
+      flyFrom: flyFrom,
+      flyTo: flyTo,
+      // dateFrom:dateFrom,
+      // // "$selectedGoDate".substring(0,10),
+      // dateTo:dateTo
+      // // "$selectedGoDate".substring(26, 37),
+    );
+    result.fold((l) {
+      print(l.message);
+      emit(SearchTicFailure(l.message));
+    }, (r) {
+      emit(SearchTicSuccess(r));
+      print("${result}lolololololol");
+    });
+  }
+
+  void onSelectDeparture(String departure, String departureCode) {
+    codeDeparture = departureCode;
     nameDeparture = departure;
+    print("${codeDeparture}ooooooooooppppppppppppp");
     emit(SearchOnSelectDeparture());
   }
 
@@ -165,8 +199,10 @@ class FlightCubit extends Cubit<FlightState> {
     emit(SearchOnSelectDepartureRoundTrip());
   }
 
-  void onSelectArrival(String arrival) {
+  void onSelectArrival(String arrival, String arrivalCode) {
+    codeArrival = arrivalCode;
     nameArrival = arrival;
+    print("${codeDeparture}ooooooooooppppppppppppp");
     emit(SearchOnSelectArrival());
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travel_app/core/routing/route.dart';
+import 'package:travel_app/features/flight/domain/use_cases/search_tic_use_case.dart';
 import 'package:travel_app/features/login/presentation/pages/login_screen.dart';
 import 'package:travel_app/features/flight/data/repositories/flight_data_repo.dart';
 import 'package:travel_app/features/flight/domain/use_cases/flight_use_case.dart';
@@ -37,8 +38,9 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (context) {
             return BlocProvider(
-                create: (context) =>
-                    FlightCubit(FlightUseCase(getIt.get<FlightDataRepo>())),
+                create: (context) => FlightCubit(
+                    FlightUseCase(getIt.get<FlightDataRepo>()),
+                    SearchTickUseCase(getIt.get<FlightDataRepo>())),
                 child: const FlightScreen());
           },
         );
@@ -48,7 +50,9 @@ class AppRoute {
             final arg = settings.arguments as Map<String, dynamic>;
             return BlocProvider<FlightCubit>.value(
                 value: arg["Bloc"],
-                child: NumberOfPassengers(nameFun: arg["sumFun"],));
+                child: NumberOfPassengers(
+                  nameFun: arg["sumFun"],
+                ));
           },
         );
 
@@ -86,9 +90,7 @@ class AppRoute {
       case (Routes.newPassword):
         return MaterialPageRoute(
           builder: (context) {
-            return const NewPassword(
-
-            );
+            return const NewPassword();
           },
         );
       case (Routes.search):

@@ -2,10 +2,20 @@ part of 'flight_cubit.dart';
 abstract class FlightState {}
 class SearchInitial extends FlightState {}
 class SearchLoading extends FlightState {}
+class SearchTicLoading extends FlightState {}
 class SearchSuccess extends FlightState {
   SearchEntity searchEntity;
 
   SearchSuccess(this.searchEntity);
+}
+class SearchTicSuccess extends FlightState {
+  SearchTicketsEntity searchTicketsEntity;
+
+  SearchTicSuccess(this.searchTicketsEntity);
+}
+class SearchTicFailure extends FlightState {
+  String errorMassage;
+  SearchTicFailure(this.errorMassage);
 }
 class SearchFailure extends FlightState {
   String errorMassage;

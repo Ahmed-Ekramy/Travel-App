@@ -10,43 +10,45 @@ class HomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            const StackHotelsOrFlightAndImage(),
-            SizedBox(
-              height: 150.h,
-            ),
-             RowItem(
-              text1: 'Best Offers'.tr(),
-            ),
-            SizedBox(
-              height: 16.h,
-            ),
-            const ListViewBuilder(),
-            SizedBox(height: 35.h,),
-             RowItem(
-              text1: 'Tourist trips to Europe'.tr(),
-
-            ),
-            SizedBox(
-              height: 16.h,
-            ),
-            const ListViewBuilder(),
-             SizedBox(height: 35.h,),
-             RowItem(
-              text1: 'Tourist trips inside Egypt'.tr(),
-            ),
-            SizedBox(
-              height: 16.h,
-            ),
-            const ListViewBuilder(),
-            SizedBox(
-              height: 150.h,
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const StackHotelsOrFlightAndImage(),
+              SizedBox(
+                height: 100.h,
+              ),
+               RowItem(
+                text1: 'Best Offers'.tr(),
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              const ListViewBuilder(),
+              SizedBox(height: 35.h,),
+               RowItem(
+                text1: 'Tourist trips to Europe'.tr(),
+      
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              const ListViewBuilder(),
+               SizedBox(height: 35.h,),
+               RowItem(
+                text1: 'Tourist trips inside Egypt'.tr(),
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              const ListViewBuilder(),
+              SizedBox(
+                height: 150.h,
+              ),
+            ],
+          ),
         ),
       ),
     );

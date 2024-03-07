@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/routing/route.dart';
 import '../../../../core/shard_widget/button.dart';
 import '../../../../core/shard_widget/text_form_field.dart';
 import '../../../../core/theming/text_style.dart';

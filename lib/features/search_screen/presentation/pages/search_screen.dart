@@ -58,13 +58,19 @@ class SearchScreen extends StatelessWidget {
                                 FlightCubit.get(context).onSelectDeparture(
                                     " ${FlightCubit
                                         .get(context)
-                                        .searchList[index].name}");
+                                        .searchList[index].name}",
+                                    " ${FlightCubit
+                                    .get(context)
+                                    .searchList[index].code}");
                               } else if
                               (roundTrip == "GoingArrival") {
                                 FlightCubit.get(context).onSelectArrival(
                                     " ${FlightCubit
                                         .get(context)
-                                        .searchList[index].name}");
+                                        .searchList[index].name}",
+                                    " ${FlightCubit
+                                    .get(context)
+                                    .searchList[index].code}");
                               }
                               else if (roundTrip == "RoundDeparture") {
                                 FlightCubit.get(context)
