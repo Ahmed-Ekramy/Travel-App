@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travel_app/features/flight/domain/entities/search_entity.dart';
@@ -53,10 +54,13 @@ class FlightCubit extends Cubit<FlightState> {
   ];
   final startDate = DateTime.now();
   final endDate = DateTime.now();
-  var selectedGoDate = DateTimeRange(
-      start: DateTime.now(),
-      end: DateTime.now()..add(const Duration(days: 365)));
-  var selectedGoRoundDate = DateTimeRange(
+  var selectedGoDate =
+      // '${DateFormat('dd/MM/yyyy').format(DateTime.now(),)} - ${DateFormat('dd/MM/yyyy').format(DateTime.now()..add(const Duration(days: 365)))}';
+  DateTimeRange(
+      start:DateTime.now(),
+      end:DateTime.now()..add(const Duration(days: 365)));
+  var selectedGoRoundDate =
+  DateTimeRange(
       start: DateTime.now(),
       end: DateTime.now()..add(const Duration(days: 365)));
   var selectedBackRoundDate = DateTimeRange(
@@ -120,8 +124,8 @@ class FlightCubit extends Cubit<FlightState> {
     );
     if (chosenDate != null) {
       selectedGoDate = chosenDate;
-      print("$selectedGoDate".substring(0, 10));
-      print("$selectedGoDate".substring(26, 37));
+      // debugPrint("$selectedGoDate".substring(0, 10));
+      // debugPrint("$selectedGoDate".substring(26, 37));
     }
     emit(SearchOnSelectGoDate());
   }
@@ -162,13 +166,13 @@ class FlightCubit extends Cubit<FlightState> {
   void searchTick({
     required String flyFrom,
     required String flyTo,
-    // required String dateFrom,
+    required String dateFrom,
     // required String dateTo,
   }) async {
     var result = await searchTickUseCase.call(
       flyFrom: flyFrom,
       flyTo: flyTo,
-      // dateFrom:dateFrom,
+      dateFrom:dateFrom,
       // // "$selectedGoDate".substring(0,10),
       // dateTo:dateTo
       // // "$selectedGoDate".substring(26, 37),

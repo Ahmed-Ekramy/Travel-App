@@ -18,11 +18,11 @@ class FlightDataRepo extends FlightDomainRepo {
   Future<Either<Failures, SearchTicketsEntity>> searchTickets({
     required String flyFrom,
     required String flyTo,
-    // required String dateFrom,
+    required String dateFrom,
     // required String dateTo,
   }) =>
       searchDto.searchTickets(
-          // dateFrom: dateFrom,
+          dateFrom: dateFrom,
           // dateTo: dateTo,
           flyFrom: flyFrom,
           flyTo: flyTo,

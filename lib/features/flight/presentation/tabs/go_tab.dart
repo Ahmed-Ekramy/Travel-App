@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/core/routing/route.dart';
+import 'package:travel_app/features/flight/data/models/search_tic_model.dart';
 import 'package:travel_app/features/flight/presentation/manager/flight_cubit.dart';
 import '../../../../core/shard_widget/button.dart';
 import '../../../../core/shard_widget/shard_widget.dart';
@@ -56,8 +58,9 @@ class GoTab extends StatelessWidget {
                     child: GoItem(
                         image: "assets/svg/calendar-edit.svg",
                         text1: 'Departure Date',
-                        text2: "${FlightCubit.get(context).selectedGoDate}"
-                            .substring(0, 10)),
+                        text2:"${ FlightCubit.get(context).selectedGoDate}"
+                            .substring(0, 10)
+                    ),
                   ),
                   InkWell(
                       onTap: () {
@@ -95,11 +98,11 @@ class GoTab extends StatelessWidget {
                     heightButton: 50,
                     nameButton: "Search",
                     onPressed: () {
-                      print("${FlightCubit.get(context).codeDeparture}cccccccccccccccccccccccccccccccccccccc");
-                      print("${FlightCubit.get(context).codeArrival}nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
                       FlightCubit.get(context).searchTick(
                         flyFrom: FlightCubit.get(context).codeDeparture,
                         flyTo: FlightCubit.get(context).codeArrival,
+                        dateFrom:"${FlightCubit.get(context).selectedGoDate}"
+                            .substring(0, 10)
                       );
                       // dateFrom: "${FlightCubit.get(context).selectedGoDate}"
                       //     .substring(0, 10),

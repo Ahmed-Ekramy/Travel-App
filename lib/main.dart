@@ -22,5 +22,9 @@ void main() async{
       child: const TravelApp()));
 }
 final getIt = GetIt.instance;
-
-
+// DateTime convertDateFormat(String originalDate) {
+//   // Parse the original date string in the format "dd/MM/yyyy" into a DateTime object
+//   DateTime parsedDate = DateFormat('dd/MM/yyyy').parse(originalDate);
+//   // Return the DateTime object
+//   return parsedDate;
+// }

@@ -10,7 +10,7 @@ abstract class FlightDto{
       {
     required String flyFrom,
     required String flyTo,
-  //   required String dateFrom,
+    required String dateFrom,
   //   required String dateTo,
    }
   );

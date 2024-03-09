@@ -32,12 +32,12 @@ class FlightRemoteDto extends FlightDto {
   Future<Either<Failures, SearchTicketsModel>> searchTickets({
     required String flyFrom,
     required String flyTo,
-    // required String dateFrom,
+    required String dateFrom,
     // required String dateTo,
   }) async {
     try {
       var response = await dio.get(
-          "https://api.tequila.kiwi.com/v2/search?fly_from=${flyFrom.trim()}&fly_to=${flyTo.trim()}&date_from=07/03/2024&date_to=08/03/2024",
+          "https://api.tequila.kiwi.com/v2/search?fly_from=${flyFrom.trim()}&fly_to=${flyTo.trim()}&date_from=${dateFrom.trim()}&date_to=011/03/2024",
           options: Constant.options);
       SearchTicketsModel searchTicketsModel =
           SearchTicketsModel.fromJson(response.data);
