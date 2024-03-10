@@ -28,3 +28,12 @@ final getIt = GetIt.instance;
 //   // Return the DateTime object
 //   return parsedDate;
 // }
+String formatDateTimeRange(DateTimeRange dateRange) {
+  // Format start and end dates in the desired format (dd/MM/yyyy)
+  String formattedStartDate = DateFormat('dd/MM/yyyy').format(dateRange.start);
+  String formattedEndDate = DateFormat('dd/MM/yyyy').format(dateRange.end);
+  // Combine the formatted dates into a range
+  String formattedDateRange = '$formattedStartDate - $formattedEndDate';
+
+  return formattedDateRange;
+}

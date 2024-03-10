@@ -5,6 +5,7 @@ import 'package:travel_app/features/flight/domain/entities/search_entity.dart';
 import 'package:travel_app/features/flight/domain/entities/search_tic_entity.dart';
 import 'package:travel_app/features/flight/domain/use_cases/flight_use_case.dart';
 import 'package:travel_app/features/flight/domain/use_cases/search_tic_use_case.dart';
+import '../../../../main.dart';
 import '../../../economic_degree/data/models/travle_clss_model.dart';
 
 part 'flight_state.dart';
@@ -54,7 +55,7 @@ class FlightCubit extends Cubit<FlightState> {
   ];
   final startDate = DateTime.now();
   final endDate = DateTime.now();
-  var selectedGoDate =
+  DateTimeRange selectedGoDate =
       // '${DateFormat('dd/MM/yyyy').format(DateTime.now(),)} - ${DateFormat('dd/MM/yyyy').format(DateTime.now()..add(const Duration(days: 365)))}';
   DateTimeRange(
       start:DateTime.now(),
@@ -124,8 +125,8 @@ class FlightCubit extends Cubit<FlightState> {
     );
     if (chosenDate != null) {
       selectedGoDate = chosenDate;
-      // debugPrint("$selectedGoDate".substring(0, 10));
-      // debugPrint("$selectedGoDate".substring(26, 37));
+      debugPrint("$selectedGoDate".substring(0, 10));
+      debugPrint("$selectedGoDate".substring(26, 37));
     }
     emit(SearchOnSelectGoDate());
   }

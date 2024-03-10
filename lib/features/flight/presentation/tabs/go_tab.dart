@@ -7,6 +7,7 @@ import 'package:travel_app/features/flight/data/models/search_tic_model.dart';
 import 'package:travel_app/features/flight/presentation/manager/flight_cubit.dart';
 import '../../../../core/shard_widget/button.dart';
 import '../../../../core/shard_widget/shard_widget.dart';
+import '../../../../main.dart';
 import '../widgets/go_item.dart';
 
 class GoTab extends StatelessWidget {
@@ -56,10 +57,10 @@ class GoTab extends StatelessWidget {
                       FlightCubit.get(context).chooseGoDate(context);
                     },
                     child: GoItem(
+
                         image: "assets/svg/calendar-edit.svg",
                         text1: 'Departure Date',
-                        text2:"${ FlightCubit.get(context).selectedGoDate}"
-                            .substring(0, 10)
+                        text2:formatDateTimeRange(FlightCubit.get(context).selectedGoDate).substring(0,11),
                     ),
                   ),
                   InkWell(
@@ -101,8 +102,7 @@ class GoTab extends StatelessWidget {
                       FlightCubit.get(context).searchTick(
                         flyFrom: FlightCubit.get(context).codeDeparture,
                         flyTo: FlightCubit.get(context).codeArrival,
-                        dateFrom:"${FlightCubit.get(context).selectedGoDate}"
-                            .substring(0, 10)
+                        dateFrom:formatDateTimeRange(FlightCubit.get(context).selectedGoDate).substring(0,11),
                       );
                       // dateFrom: "${FlightCubit.get(context).selectedGoDate}"
                       //     .substring(0, 10),

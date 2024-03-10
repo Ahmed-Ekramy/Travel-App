@@ -37,7 +37,7 @@ class FlightRemoteDto extends FlightDto {
   }) async {
     try {
       var response = await dio.get(
-          "https://api.tequila.kiwi.com/v2/search?fly_from=${flyFrom.trim()}&fly_to=${flyTo.trim()}&date_from=${dateFrom.trim()}&date_to=011/03/2024",
+          "https://api.tequila.kiwi.com/v2/search?fly_from=${flyFrom.trim()}&fly_to=${flyTo.trim()}&date_from=${dateFrom.trim()}&date_to=14/03/2024",
           options: Constant.options);
       SearchTicketsModel searchTicketsModel =
           SearchTicketsModel.fromJson(response.data);
@@ -45,7 +45,7 @@ class FlightRemoteDto extends FlightDto {
       return Right(searchTicketsModel);
     } catch (e) {
       if (e is DioException) {
-        print("${e.response?.realUri}iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+        print("${e.response?.realUri}");
         print(e.message);
         return Left(ServerFailure.fromDiorError(e));
       }
